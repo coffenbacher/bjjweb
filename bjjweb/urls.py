@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     (r'^accounts/', include('registration.backends.simple.urls')),
     (r'^users/', include('bjjprofile.urls')),
     (r'^technique/', include('technique.urls')),
+    (r'^flow/', include('flow.urls')),
     # url(r'^bjjweb/', include('bjjweb.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

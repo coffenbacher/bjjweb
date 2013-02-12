@@ -127,7 +127,8 @@ INSTALLED_APPS = (
     'registration',
     'bjjprofile',
     'technique',
-    'media'
+    'media',
+    'flow'
 )
 
 # A sample logging configuration. The only tangible logging

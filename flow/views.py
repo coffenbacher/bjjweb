@@ -31,8 +31,7 @@ def render(request, id):
     return HttpResponse(res)
 
 def create(request, id=None):
-    if id:
-        flow = Flow.objects.get(id=id)
+    flow = Flow.objects.get(id=id) if id else None
     if request.method == 'POST':
         form = FlowForm(request.POST, instance=flow)
         if form.is_valid():
