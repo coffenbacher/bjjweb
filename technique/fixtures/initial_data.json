@@ -1,0 +1,56 @@
+[
+    {
+        "pk": 1, 
+        "model": "technique.positionalimprovementtype", 
+        "fields": {
+            "created": "2013-02-12T00:07:45.823Z", 
+            "modified": "2013-02-12T00:07:45.848Z", 
+            "name": "Sweep"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "technique.positionalimprovementtype", 
+        "fields": {
+            "created": "2013-02-12T00:07:51.581Z", 
+            "modified": "2013-02-12T00:07:51.582Z", 
+            "name": "Pass"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "technique.positionalimprovementtype", 
+        "fields": {
+            "created": "2013-02-12T00:08:21.804Z", 
+            "modified": "2013-02-12T00:08:21.804Z", 
+            "name": "Escape"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "technique.level", 
+        "fields": {
+            "created": "2013-02-11T18:42:36.853Z", 
+            "modified": "2013-02-11T18:42:36.853Z", 
+            "name": "Advanced"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "technique.level", 
+        "fields": {
+            "created": "2013-02-11T18:42:30.149Z", 
+            "modified": "2013-02-11T18:42:30.150Z", 
+            "name": "Intermediate"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "technique.level", 
+        "fields": {
+            "created": "2013-02-11T18:42:20.758Z", 
+            "modified": "2013-02-11T18:42:59.046Z", 
+            "name": "Fundamental"
+        }
+    }
+]

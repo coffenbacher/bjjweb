@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="img-wrapper">
+    <img src="/static/img/home1.jpg">
+</div>
+<!--
+<div class="img-wrapper">
+    <img src="/static/home2.jpg">
+</div>
+<div class="img-wrapper">
+    <img src="/static/home3.jpg">
+</div>
+<div class="img-wrapper">
+    <img src="/static/home4.jpg">
+</div>-->
+{% if user.is_authenticated %}
+<div id="leader">
+Welcome, {{ user }}.
+Thanks for signing up. Learn from:
+<p><a href="/flow/">Flows</a></p>
+or
+<p><a href="/technique/">Techniques</a></p>
+</div>
+{% else %}
+<div id="leader">
+    Learn Brazilian Jiu Jitsu from experts online for free. 
+    <p>BJJWeb takes the best videos available and organizes them for your training.</p>
+    <p>Also, check out our innovative "Flows" section that show how all the techniques in your arsenal fit together!</p>
+    <a href="/accounts/register">Sign Up (Free)</a> or 
+    <a href="/register">Log In</a>
+</div>
+{% endif %}
+
+{% endblock content %}

@@ -1,0 +1,1 @@
+[{"pk": 1, "model": "technique.position", "fields": {"uuid": "480b1848-747b-11e2-bfc0-000c2946180f", "level": 1, "created": "2013-02-11T18:46:01.270Z", "modified": "2013-02-11T18:46:01.299Z", "name": "Test Mount", "description": "This is a test mount position."}}]

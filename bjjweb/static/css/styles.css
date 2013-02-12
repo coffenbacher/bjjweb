@@ -1,0 +1,260 @@
+body {
+    background: url('/static/img/bg.png');
+    padding: 0px;
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+#header ul {
+    margin-left:10px;
+    float: left;
+}
+
+#header h2 {
+    float: left;
+}
+
+#header a {
+    color: white;
+}
+
+#header li {
+    list-style: none;
+    float: left;
+    margin: 0px 15px 0px 0px;
+}
+
+#header img {
+    float: right;
+    margin: 0px;
+    padding: 0px;
+}
+
+h1, h2 {
+    padding: 0px;
+    margin: 5px;
+}
+
+#main-title {
+    margin-top: 10px;
+}
+
+#main-title a, #sub-title a {
+    text-decoration: none;
+}
+
+#main-title, #sub-title {
+    font-family: sans-serif;
+    float: left;
+    clear: left;
+}
+
+#header {
+    background: url('/static/img/belt.png');
+    color: #F6FFFF;
+    padding: 0px 0px 0px 20px;
+    opacity: 0.9;
+    box-shadow: 0px 5px 5px #777;
+}
+
+#content {
+    padding: 20px;    
+}
+
+#leader button {
+    font-size: 18pt;
+    color: #333;
+    border-radius: 5px;
+    padding: 8px;
+    float: right;
+}
+
+#leader {
+    font-size: 15pt;
+    background: #FFF;
+    width: 30%;
+    box-sizing: border-box;
+    float: left;
+    padding: 20px 20px;
+    margin-left: 20px;
+    min-height: 350px;
+    box-shadow: 0px 2px 5px #777;
+    color: #333;
+}
+
+.content-item {
+    background: url('/static/img/greengi.png');
+    float: left;
+    margin: 10px 10px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 2px 5px #777;
+    box-sizing: border-box;
+    color: #F0FFFF;
+}
+
+.img-wrapper {
+    background: url('/static/img/greengi.png');
+    float: left;
+    margin: 0px 0px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 2px 5px #777;
+    box-sizing: border-box;
+}
+
+#content img {
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px #000;
+}
+
+#content li {
+    list-style: none;
+}
+
+
+#footer {
+    background: url('/static/img/greengi.png');
+    height: 50px;
+    width: 100%;
+    box-shadow: 0px 5px 5px #777;
+    padding: 30px 30px 30px 0px;
+    color: white;
+}
+
+#footer li {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+#footer a {
+    color: white;
+    float: left;
+    margin-right:30px;
+}
+
+#view {
+    position: relative;
+}
+
+#technique-select {
+    margin-top: 10px;
+}
+
+#technique-form label {   
+    float: left;
+    display: block;
+    width: 100px;
+    margin-top: 10px;
+}
+
+.form input, .form select, .form textarea, .form button {
+    float: left;
+    border-radius: 5px;
+    border-width: 1px;
+    padding: 5px;
+    margin-left: 15px;
+    border-radius: 5px;
+    border-color: #DDDDDD;
+    width: 400px;
+    border-style: dashed;
+}
+
+
+.form input:focus, 
+.form textarea:focus {
+    border-color: #319155;
+    border-style: solid;
+    outline: none;
+}
+
+.form input:focus {
+    border-color: #319155;
+}
+
+.form input[type="submit"], .form button {
+    background: #319155;
+    color: white;
+    font-weight: bold;
+    margin-left: 115px;
+    border: 0px;
+}
+
+.form ul {
+    padding: 0px;
+}
+
+#create-button {
+    margin-left: 0px;
+    cursor: pointer;
+}
+
+.form li {
+    clear: both;
+}
+
+#position-form {
+}
+
+#p-improvement-form {
+}
+.form {
+    background: white;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #319155;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.form h1 {
+    margin-left: 0px;
+}
+
+.form h2 {
+    clear: both;
+}
+
+#create li input {
+    width: 20px;
+}
+
+#create li {
+    float: left;
+    width: 250px;
+    clear: none;
+}
+    
+#create a {
+    background: #335AE8;
+    color: white;
+    width: 150px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    clear: both;
+    margin-bottom: 10px;
+    font-weight: bold;
+    padding: 5px;
+    font-size: 8pt;
+    clear: both;
+    display: block;
+}
+
+#create ul {
+    padding-bottom: 5px;
+}
+
+.flow-label {
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+    font-weight: bold;
+    fill: white;
+}
+
+label.from {
+    font-size: 8pt;
+    color: blue;
+    display: block;
+    padding-left: 38px;
+}

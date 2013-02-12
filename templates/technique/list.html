@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block js %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#search").keyup(function(){
+            if ($(this).val()==""){
+                $(".content-item").show();
+            }
+            else {
+                $(".content-item").not(":contains("+$(this).val()+")").hide();
+                $(".content-item").filter(":contains("+$(this).val()+")").show();
+            }
+        });
+    });
+</script>
+
+{% endblock %} 
+
+{% block content %}
+    <h1 style="float:left;">Techniques</h1>
+    <form class="form" style="width: 450px; float: left; border: none; background: none; padding: 0px">
+        <input id="search" placeholder="Search for a technique" style="width: 400px; font-size: 20pt; float: none">
+    </form>
+    <ul style="clear: both">
+    {% for technique in techniques %}
+        <a href="/technique/{{ technique.uuid }}/"> 
+        <li class="content-item" style="min-height: 145px;">
+            <img src="{{ technique.images.all.0.image.url }}" style="width:100px; float: left;">
+            <div style="float: left; padding-left: 20px; width: 150px;">
+                {{ technique.name }}
+                <div style="font-style: italic; font-size: 10pt;" >from {{ technique.start }}</div>
+            </div>
+        </li>
+        </a>
+    {% endfor %}
+    </ul>
+    <div style="clear:both">
+        <a href="/technique/create/">Create a new technique</a>
+    </div>
+{% endblock %}
+

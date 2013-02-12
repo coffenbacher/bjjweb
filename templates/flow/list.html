@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Flows</h1>
+    <a href="/flow/create/">Create a new flow</a>
+    <ul>
+    {% for flow in flows %}
+        <a href="/flow/{{ flow.id }}">
+        <li class="content-item">
+            <h2>{{ flow.name }}</h2>
+            <div>
+                <ul>
+                    <li>Positions: {{ flow.positions.count }}</li>
+                    <li>Submissions: {{ flow.submissions.count }}</li>
+                    <li>Positional improvements: {{ flow.positional_improvements.count }}</li>
+                </ul>
+            </div>
+        </li>
+        </a>
+    {% endfor %}
+    </ul>
+{% endblock %}
+

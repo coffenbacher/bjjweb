@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block js %}
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $("#technique-select").change(function(){
+            var v = $("#technique-select option:selected").val();
+            if (v=='s'){
+                $("#position-form").hide();
+                $("#submission-form").show();
+                $("#p-improvement-form").hide();
+            }
+            if (v=='p'){
+                $("#position-form").show();
+                $("#submission-form").hide();
+                $("#p-improvement-form").hide();
+            }
+            if (v=='pi'){
+                $("#position-form").hide();
+                $("#submission-form").hide();
+                $("#p-improvement-form").show();
+            }
+        });
+        $("#technique-select").change();
+    });
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="form" id="technique-form">
+        <h1>Add a new technique</h1>
+        {% if p_improvement_form and submission_form and position_form %}
+        <div id="technique-select">
+            <label>Type:</label>
+            <select id="technique-select">
+                <option value='s'>Submission</option>
+                <option value='p'>Position</option>
+                <option value='pi'>Positional Improvement</option>
+            </select>
+        </div>
+        {% endif %}
+        
+        {% if submission_form %}
+        <form method="POST" id="submission-form" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="hidden" name="tech-type" value="submission">
+            {{ submission_form.as_ul }}
+            {{ images_formset.as_ul }}
+            <input type="submit">
+        </form>    
+        {% endif %}
+
+        {% if position_form %}
+        <form method="POST" id="position-form">
+            {% csrf_token %}
+            <input type="hidden" name="tech-type" value="position">
+            {{ position_form.as_ul }}
+            {{ images_formset.as_ul }}
+            <input type="submit">
+        </form>
+        {% endif %}
+
+        {% if p_improvement_form %}
+        <form method="POST" id="p-improvement-form">
+            {% csrf_token %}
+            <input type="hidden" name="tech-type" value="p-improvement">
+            {{ p_improvement_form.as_ul }}
+            {{ images_formset.as_ul }}
+            <input type="submit">
+        </form>
+        {% endif %}
+        <div style="clear:both;"></div>
+    </div>
+{% endblock %}
+

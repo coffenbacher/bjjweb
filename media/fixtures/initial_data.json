@@ -1,0 +1,11 @@
+[
+    {
+        "pk": 1, 
+        "model": "media.mediacategory", 
+        "fields": {
+            "modified": "2013-02-11T19:20:14.380Z", 
+            "name": "Display", 
+            "created": "2013-02-11T19:20:14.348Z"
+        }
+    }
+]

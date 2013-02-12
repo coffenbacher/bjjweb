@@ -1,0 +1,29 @@
+[
+    {
+        "pk": 3, 
+        "model": "technique.level", 
+        "fields": {
+            "modified": "2013-02-11T18:42:36.853Z", 
+            "name": "Advanced", 
+            "created": "2013-02-11T18:42:36.853Z"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "technique.level", 
+        "fields": {
+            "modified": "2013-02-11T18:42:30.150Z", 
+            "name": "Intermediate", 
+            "created": "2013-02-11T18:42:30.149Z"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "technique.level", 
+        "fields": {
+            "modified": "2013-02-11T18:42:59.046Z", 
+            "name": "Fundamental", 
+            "created": "2013-02-11T18:42:20.758Z"
+        }
+    }
+]

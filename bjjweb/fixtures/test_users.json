@@ -1,0 +1,74 @@
+[
+    {
+        "pk": 4, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "test", 
+            "first_name": "", 
+            "last_name": "", 
+            "is_active": true, 
+            "is_superuser": false, 
+            "is_staff": false, 
+            "last_login": "2013-02-11T19:09:12.850Z", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "pbkdf2_sha256$10000$ty58NdiUKkeW$WAqFFdMjBtEYrnH5ka63aLg6yd1HEyEhVZ/IP4zXoRA=", 
+            "email": "", 
+            "date_joined": "2013-02-11T19:09:12.850Z"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "test1@test.com", 
+            "first_name": "", 
+            "last_name": "", 
+            "is_active": true, 
+            "is_superuser": false, 
+            "is_staff": false, 
+            "last_login": "2013-02-11T02:03:26.706Z", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "pbkdf2_sha256$10000$aT0NFR6TU0Ey$/j66/CQ/gVU1/cF3+qVec1ZsabdKsihYR3Ygts7KfVo=", 
+            "email": "test1@test.com", 
+            "date_joined": "2013-02-11T02:03:26.514Z"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "test@test.com", 
+            "first_name": "", 
+            "last_name": "", 
+            "is_active": true, 
+            "is_superuser": false, 
+            "is_staff": false, 
+            "last_login": "2013-02-11T01:50:07.970Z", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "pbkdf2_sha256$10000$h0BMPX5T1lag$Z4daz9Wgu/XNtgSHI9/LGNKab03nX8bWQ33gDCMlI9w=", 
+            "email": "test@test.com", 
+            "date_joined": "2013-02-11T01:50:07.731Z"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "coffenbacher", 
+            "first_name": "", 
+            "last_name": "", 
+            "is_active": true, 
+            "is_superuser": true, 
+            "is_staff": true, 
+            "last_login": "2013-02-11T01:49:53.160Z", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "pbkdf2_sha256$10000$BPa6RpVhAQtv$8YeFmt2aowEESLIJTXGsJHXS2nZ9sRdqVtTA/8peUkE=", 
+            "email": "charles.offenbacher@gmail.com", 
+            "date_joined": "2013-02-11T01:49:53.160Z"
+        }
+    }
+]
