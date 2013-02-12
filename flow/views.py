@@ -41,10 +41,10 @@ def create(request, id=None):
             form.save_m2m()
             return redirect('/flow/%s/' % f.id)
     else:        
-        if not id:
-            form = FlowForm()
         if id:
             form = FlowForm(instance=Flow.objects.get(id=id))
+        else:
+            form = FlowForm()
 
     valid_subs = {}
     valid_pis = {}

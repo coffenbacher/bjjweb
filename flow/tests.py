@@ -33,7 +33,7 @@ class FlowTest(TestCase):
         self.assertTrue(Flow.objects.get(name='Test Flow POST'))
     
     def test_flow_css(self):
-        response = self.client.get('/static/css/flow.css')
+        response = self.client.get('/static/css/force.css')
         self.failUnlessEqual(response.status_code, 200)
     
     def test_flow_js(self):
