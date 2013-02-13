@@ -9,6 +9,18 @@
         }
     }, 
     {
+        "pk": 2, 
+        "model": "technique.position", 
+        "fields": {
+            "uuid": "9ae79c9c-74c8-11e2-90fb-000c2946180f", 
+            "level": 1, 
+            "created": "2013-02-12T03:59:31.562Z", 
+            "modified": "2013-02-12T03:59:31.566Z", 
+            "name": "Test Guard", 
+            "description": ""
+        }
+    }, 
+    {
         "pk": 1, 
         "model": "technique.position", 
         "fields": {
@@ -42,11 +54,11 @@
         "pk": 2, 
         "model": "technique.positionalimprovement", 
         "fields": {
-            "end": 1, 
+            "end": 2, 
             "uuid": "f54f2d2c-74a9-11e2-9320-000c2946180f", 
             "level": 1, 
             "created": "2013-02-12T00:20:08.831Z", 
-            "modified": "2013-02-12T00:20:08.840Z", 
+            "modified": "2013-02-12T04:01:11.207Z", 
             "name": "Test Escape", 
             "start": 1, 
             "type": 3, 
@@ -57,11 +69,11 @@
         "pk": 1, 
         "model": "technique.positionalimprovement", 
         "fields": {
-            "end": 1, 
+            "end": 2, 
             "uuid": "e40eddaa-74a9-11e2-8634-000c2946180f", 
             "level": 1, 
             "created": "2013-02-12T00:19:39.887Z", 
-            "modified": "2013-02-12T00:19:39.898Z", 
+            "modified": "2013-02-12T04:01:04.730Z", 
             "name": "Test Sweep", 
             "start": 1, 
             "type": 1, 

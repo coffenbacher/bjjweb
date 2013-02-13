@@ -9,6 +9,18 @@
         }
     }, 
     {
+        "pk": 2, 
+        "model": "technique.position", 
+        "fields": {
+            "uuid": "9ae79c9c-74c8-11e2-90fb-000c2946180f", 
+            "level": 1, 
+            "created": "2013-02-12T03:59:31.562Z", 
+            "modified": "2013-02-12T03:59:31.566Z", 
+            "name": "Test Guard", 
+            "description": ""
+        }
+    }, 
+    {
         "pk": 1, 
         "model": "technique.position", 
         "fields": {

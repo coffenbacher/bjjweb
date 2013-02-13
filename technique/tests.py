@@ -18,6 +18,11 @@ class LoggedOutTest(TestCase):
         response = self.client.get('/technique/create/')
         self.failUnlessEqual(response.status_code, 302)
 
+    def test_show(self):
+        s = Position.objects.all()[0]
+        response = self.client.get('/technique/%s/' % s.uuid)
+        self.failUnlessEqual(response.status_code, 200)
+
 
 class LoggedInTest(TestCase):
     fixtures = ['initial_data.json', 'test_techniques.json', 'test_users.json']
@@ -76,3 +81,8 @@ class LoggedInTest(TestCase):
         response = self.client.post('/technique/create/', d)
         
         self.assertTrue(PositionalImprovement.objects.get(name='Test PositionalImprovement'))
+
+    def test_edit(self):
+        s = Position.objects.all()[0]
+        response = self.client.get('/technique/%s/edit/' % s.uuid)
+        self.failUnlessEqual(response.status_code, 200)
