@@ -1,4 +1,6 @@
+import pdb
 from django_extensions.db.fields import UUIDField
+from django.core.urlresolvers import reverse
 from django.db import models
 from django_extensions.db.models import TimeStampedModel
 from django.contrib.contenttypes import generic
@@ -31,9 +33,34 @@ class Technique(TimeStampedModel):
             pass
         return None    
 
+    def get_forms(self, request):
+        f = self.get_form()    
+        return f
 
+    def handle_forms(self, request):
+        from forms import *
+        if self.uuid:
+            kwargs = {'instance': self}
+        else:
+            kwargs = {}
+        if request.POST['tech-type'] == 'submission':
+            f = SubmissionForm(request.POST, **kwargs)
+        elif request.POST['tech-type'] == 'position':
+            f = PositionForm(request.POST, **kwargs)
+        elif request.POST['tech-type'] == 'p-improvement':
+            f = PositionalImprovementForm(request.POST, **kwargs)
+
+        if f.is_valid():
+            t = f.save()
+            return t
+        return SubmissionForm(instance=self)
+        
     def get_uuid(self):
         return unicode(self.uuid)
+
+    def get_absolute_url(self):
+        return reverse('technique.views.view', args=(self.get_uuid(),))
+
     def display_image(self):
         if self.images.exists():
             return self.images.all()[0]
@@ -43,14 +70,23 @@ class Technique(TimeStampedModel):
 
 class Position(Technique):
     color = "brown"
+    
+    def get_form(self):
+        from forms import *
+        return PositionForm(instance=self)
 
 class Submission(Technique):
     color = "red"
     start = models.ForeignKey(Position, related_name="start_submission")
+    
+    def get_form(self):
+        from forms import *
+        return SubmissionForm(instance=self)
 
 class SubmissionType(TimeStampedModel):
     name = models.CharField(max_length=200)
     parent = models.ForeignKey("SubmissionType", null=True, blank=True)
+    
     def __unicode__(self):
         return self.name
 
@@ -59,6 +95,10 @@ class PositionalImprovement(Technique):
     type = models.ForeignKey("PositionalImprovementType")
     start = models.ForeignKey(Position, related_name="start")
     end = models.ForeignKey(Position, related_name="end")
+    
+    def get_form(self):
+        from forms import *
+        return PositionalImprovement(instance=self)
 
 class PositionalImprovementType(TimeStampedModel):
     name = models.CharField(max_length=200)

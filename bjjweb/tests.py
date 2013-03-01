@@ -37,3 +37,23 @@ class SimpleTest(TestCase):
     def test_profile(self):
         response = self.client.get('/users/t%40t.com/')
         self.failUnlessEqual(response.status_code, 200)
+        
+    def test_about(self):
+        response = self.client.get('/about/')
+        self.failUnlessEqual(response.status_code, 200)
+    
+class LoggedInTest(TestCase):
+    def setUp(self):
+        # Every test needs a client.
+        self.client = Client()
+        User.objects.create_user(username='t@t.com', email='t@t.com', password='testests')
+        self.client.login(username='t@t.com', password='testests')
+    
+    def test_home_logged_in(self):
+        response = self.client.get('/')
+        self.failUnlessEqual(response.status_code, 302)
+
+    def test_about_logged_in(self):
+        response = self.client.get('/about/')
+        self.assertTrue('Techniques' in response.content)
+        self.failUnlessEqual(response.status_code, 200)

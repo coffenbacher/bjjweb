@@ -29,7 +29,7 @@
 {% block content %}
     <div class="form" id="technique-form">
         <h1>Add a new technique</h1>
-        {% if p_improvement_form and submission_form and position_form %}
+        {% if pi_form and s_form and p_form %}
         <div id="technique-select">
             <label>Type:</label>
             <select id="technique-select">
@@ -40,32 +40,35 @@
         </div>
         {% endif %}
         
-        {% if submission_form %}
+        {% if s_form %}
         <form method="POST" id="submission-form" enctype="multipart/form-data">
             {% csrf_token %}
             <input type="hidden" name="tech-type" value="submission">
-            {{ submission_form.as_ul }}
-            {{ images_formset.as_ul }}
+            {{ s_form.as_ul }}
+            {{ vid_formset.as_ul }}
+            {{ img_formset.as_ul }}
             <input type="submit">
         </form>    
         {% endif %}
 
-        {% if position_form %}
+        {% if p_form %}
         <form method="POST" id="position-form">
             {% csrf_token %}
             <input type="hidden" name="tech-type" value="position">
-            {{ position_form.as_ul }}
-            {{ images_formset.as_ul }}
+            {{ p_form.as_ul }}
+            {{ vid_formset.as_ul }}
+            {{ img_formset.as_ul }}
             <input type="submit">
         </form>
         {% endif %}
 
-        {% if p_improvement_form %}
+        {% if pi_form %}
         <form method="POST" id="p-improvement-form">
             {% csrf_token %}
             <input type="hidden" name="tech-type" value="p-improvement">
-            {{ p_improvement_form.as_ul }}
-            {{ images_formset.as_ul }}
+            {{ pi_form.as_ul }}
+            {{ vid_formset.as_ul }}
+            {{ img_formset.as_ul }}
             <input type="submit">
         </form>
         {% endif %}

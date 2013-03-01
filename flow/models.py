@@ -10,3 +10,23 @@ class Flow(TimeStampedModel):
     positions = models.ManyToManyField(Position)
     submissions = models.ManyToManyField(Submission, blank=True)
     positional_improvements = models.ManyToManyField(PositionalImprovement, blank=True)
+    
+    def techniques(self):
+        ts = []
+        ts += list(self.positions.all())
+        ts += list(self.submissions.all())
+        ts += list(self.positional_improvements.all())
+        return ts
+        
+    def get_nodes(self):
+        nodes = []
+        
+        for p in self.techniques():
+            nodes.append({
+                'color': p.color,
+                'url': p.get_absolute_url(),
+                'name': p.name,
+                'uuid': p.uuid,
+            })
+        
+        return nodes

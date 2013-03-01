@@ -7,6 +7,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'bjjweb.views.home', name='home'),
+    url(r'^about/$', 'bjjweb.views.about', name='about'),
     (r'^accounts/', include('registration.backends.simple.urls')),
     (r'^users/', include('bjjprofile.urls')),
     (r'^technique/', include('technique.urls')),

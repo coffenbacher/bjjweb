@@ -31,10 +31,7 @@ class Image(BasicMedia):
     image = models.ImageField(upload_to="m/resource-images")
 
 class Video(BasicMedia):
-    youtube_id = models.CharField(max_length=200, verbose_name="Youtube link")
+    youtube_id = models.CharField(max_length=200, verbose_name="Youtube parsed id")
+    youtube_url = models.CharField(max_length=200, verbose_name="Youtube link")
     start = models.IntegerField(default=0, verbose_name="Start time (s)")
 
-class VideoForm(ModelForm):
-    class Meta:
-        model = Video
-        exclude = ('submitted_by', 'technique')

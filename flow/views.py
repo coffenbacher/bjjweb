@@ -17,16 +17,7 @@ def view(request, id):
 
 def render(request, id):
     f = Flow.objects.get(id=id)
-    nodes = ([
-                dict({'color': 'green'}, **p) for p in f.positions.values("name", "uuid")
-            ] 
-                + 
-            [
-                dict({'color': 'red'}, **s) for s in f.submissions.values("name", "uuid")
-            ] 
-                + 
-            [
-                dict({'color': 'blue'}, **p) for p in f.positional_improvements.values("name", "uuid")])
+    nodes = f.get_nodes()
     links = []
     for p in f.positions.all():
         for s in p.start_submission.filter(id__in=f.submissions.values_list("id", flat=True)):

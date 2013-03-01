@@ -61,7 +61,8 @@ var render_nodes = function(nodes){
        .attr("cx", function(d) { return d.x; })
        .attr("cy", function(d) { return d.y; })
        .attr("ry", RADIUS / 1.618)
-       .attr("rx", RADIUS);
+       .attr("rx", RADIUS)
+       .on("click", function(d) { window.open(d.url, '_blank')});
     
     base.append("svg:g")
        .attr("id", "text")
@@ -73,7 +74,8 @@ var render_nodes = function(nodes){
        .attr("text-anchor", "middle")
        .attr("y", ".3em")
        .style("font-size", function(d){return (35 - d.name.length/1) / 4})
-       .text(function(d) { return d.name; });
+       .text(function(d) { return d.name; })
+       .on("click", function(d) { window.open(d.url, '_blank')});
 };
 
 var render_links = function(d, force){

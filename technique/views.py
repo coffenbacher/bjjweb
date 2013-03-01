@@ -18,6 +18,30 @@ def view(request, uuid):
 
 @login_required
 def create(request, uuid=None):
+    t = Technique.get_technique_or_none(uuid)
+    d = {}
+    if request.method == 'POST':
+        if not t:
+            t = Technique()
+        d['f'] = t.handle_forms(request)
+        if isinstance(d['f'], Technique):
+            return redirect(reverse('technique.views.view', args=(d['f'].uuid,)))
+        
+    elif t:    
+        d['f'] = t[1].get_forms(request)
+    else:    
+        d['s_form'] = SubmissionForm()
+        d['p_form'] = PositionForm()
+        d['pi_form'] = PositionalImprovementForm()
+        d['img_formset'] = ImagesFormSet()
+        d['vid_formset'] = VideosFormSet()
+    
+    return render_to_response('technique/create.html',
+        d, RequestContext(request))
+
+"""
+@login_required
+def create(request, uuid=None):
     p = True if request.method == 'POST' else False
 
     if uuid:
@@ -77,3 +101,4 @@ def create(request, uuid=None):
         'p_improvement_form': p_improvement_form,
         'images_formset': formset,
         }, RequestContext(request))
+    """

@@ -258,3 +258,9 @@ label.from {
     display: block;
     padding-left: 38px;
 }
+
+.faq {
+    margin-top: 10px;
+    width: 100%;
+    color: white;
+}

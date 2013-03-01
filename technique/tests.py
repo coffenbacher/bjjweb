@@ -37,6 +37,9 @@ class LoggedInTest(TestCase):
 
     def test_create_GET(self):
         response = self.client.get('/technique/create/')
+        self.assertTrue('Name' in response.content)
+        self.assertTrue('Level' in response.content)
+        self.assertTrue('Youtube' in response.content)
         self.failUnlessEqual(response.status_code, 200)
         
     def test_create_position_POST(self):
@@ -49,6 +52,7 @@ class LoggedInTest(TestCase):
             'media-image-content_type-object_id-2-id': '',
             }
         response = self.client.post('/technique/create/', d)
+        self.failUnlessEqual(response.status_code, 302)
         self.assertTrue(Position.objects.get(name='Test Position'))
 
 
@@ -62,7 +66,7 @@ class LoggedInTest(TestCase):
             'media-image-content_type-object_id-2-id': '',
             }
         response = self.client.post('/technique/create/', d)
-        
+        self.failUnlessEqual(response.status_code, 302)
         self.assertTrue(Submission.objects.get(name='Test Submission'))
     
     def test_create_positional_improvement_POST(self):
@@ -79,7 +83,7 @@ class LoggedInTest(TestCase):
             'media-image-content_type-object_id-2-id': '',
             }
         response = self.client.post('/technique/create/', d)
-        
+        self.failUnlessEqual(response.status_code, 302)
         self.assertTrue(PositionalImprovement.objects.get(name='Test PositionalImprovement'))
 
     def test_edit(self):
