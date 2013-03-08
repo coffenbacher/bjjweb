@@ -12,4 +12,3 @@ class PositionForm(ModelForm):
 class SubmissionForm(ModelForm):
     class Meta:
         model = Submission
-

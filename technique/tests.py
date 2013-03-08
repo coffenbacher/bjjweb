@@ -87,6 +87,31 @@ class LoggedInTest(TestCase):
         self.failUnlessEqual(response.status_code, 302)
         self.assertTrue(PositionalImprovement.objects.get(name='Test PositionalImprovement'))
 
+    def test_create_submission_media_POST(self):
+        d = {
+            'tech-type': 'submission', 
+            'level': 1, 'name': 'Test Armbar', 
+            'description': 'Sub101 test',
+            'start': 1,
+            'media-video-content_type-object_id-TOTAL_FORMS': 1,
+            'media-video-content_type-object_id-INITIAL_FORMS': 0,
+            'media-video-content_type-object_id-MAX_NUM_FORMS': '',
+            'media-video-content_type-object_id-0-youtube_url': 'http://www.youtube.com/watch?v=TTAZk2Whbwo',
+            'media-video-content_type-object_id-0-start': 0,
+            'media-video-content_type-object_id-0-id': '',
+            'media-image-content_type-object_id-TOTAL_FORMS': 3,
+            'media-image-content_type-object_id-INITIAL_FORMS': 0,
+            'media-image-content_type-object_id-MAX_NUM_FORMS': '',
+            'media-image-content_type-object_id-0-id': '',
+            'media-image-content_type-object_id-1-id': '',
+            'media-image-content_type-object_id-2-id': '',
+            }
+        response = self.client.post('/technique/create/', d)
+        self.failUnlessEqual(response.status_code, 302)
+        p = Submission.objects.get(name='Test Armbar')
+        self.assertTrue(p)
+        self.assertEquals(p.videos.count(), 1)
+    
     def test_edit(self):
         s = Position.objects.all()[0]
         response = self.client.get('/technique/%s/edit/' % s.uuid)
