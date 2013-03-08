@@ -3,4 +3,24 @@
 {% block content %}
     <h1 style="float: left;">{{ t.name }}</h1>
     <a href="/technique/{{ t.uuid }}/edit" style="display: block; margin-top: 22px; padding-left:10px; font-size: 8pt">Edit</a>
+    <div style="padding-top: 20px;">
+        {% if t.youtube_id %}
+        <div class="content-item">
+            <iframe width="500px" height="400px" src="http://www.youtube.com/embed/{{ t.youtube_id }}?rel=0" frameborder="0" allowfullscreen></iframe>
+        </div>
+        {% endif %}
+        <div class="content-item" style="width:300px;">
+            {{ t.description }}
+        </div>
+    </div>
+    <div style="clear:both">
+        <h2>Flows containing {{ t.name }}</h2>
+        <ul>
+        {% for f in t.flow_set.all %}
+            <li class="content-item"><a href="{{ f.get_absolute_url }}">{{ f }}</a></li>
+        {% empty %}
+            <i>None yet, <a href="{% url flow.views.create %}">create a flow</a></i>
+        {% endfor %}
+        </ul>
+    </div>
 {% endblock %}

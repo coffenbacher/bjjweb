@@ -93,6 +93,11 @@ h1, h2 {
     color: #F0FFFF;
 }
 
+.content-item a {
+    color: #F0FFFF;
+}
+
+
 .img-wrapper {
     background: url('/static/img/greengi.png');
     float: left;

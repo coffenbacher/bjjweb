@@ -30,3 +30,9 @@ class Flow(TimeStampedModel):
             })
         
         return nodes
+    
+    def get_absolute_url(self):
+        return reverse('flow.views.view', args=(self.pk,))
+    
+    def __unicode__(self):
+        return self.name
