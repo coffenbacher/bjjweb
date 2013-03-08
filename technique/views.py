@@ -33,8 +33,6 @@ def create(request, uuid=None):
         d['s_form'] = SubmissionForm()
         d['p_form'] = PositionForm()
         d['pi_form'] = PositionalImprovementForm()
-        d['img_formset'] = ImagesFormSet()
-        d['vid_formset'] = VideosFormSet()
     
     return render_to_response('technique/create.html',
         d, RequestContext(request))

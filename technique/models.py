@@ -14,8 +14,6 @@ class Technique(TimeStampedModel):
     name = models.CharField(max_length=200)
     level = models.ForeignKey("Level", default=1)
     description = models.TextField(null=True, blank=True)
-    images = generic.GenericRelation(Image)
-    videos = generic.GenericRelation(Video)
     uuid = UUIDField(auto=True) 
 
     @classmethod
@@ -52,11 +50,8 @@ class Technique(TimeStampedModel):
         elif request.POST['tech-type'] == 'p-improvement':
             f = PositionalImprovementForm(request.POST, **kwargs)
 
-        v = VideosFormSet(request.POST)
-        
         if f.is_valid() and v.is_valid():
             t = f.save()
-            VideoForm.save_formset(v, submitter=request.user)
             return t
         
     def get_uuid(self):
