@@ -27,7 +27,7 @@
     </div>
     <ul style="clear: both">
     {% for technique in techniques %}
-        <a href="/technique/{{ technique.uuid }}/"> 
+        <a href="{{ technique.get_absolute_url }}"> 
         <li class="content-item" style="min-height: 145px;">
             <img src="{{ technique.images.all.0.image.url }}" style="width:100px; float: left;">
             <div style="float: left; padding-left: 20px; width: 150px;">

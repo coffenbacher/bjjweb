@@ -52,4 +52,16 @@ class LoggedInTest(TestCase):
     def test_edit_GET(self):
         s = Technique.objects.all()[0]
         response = self.client.get('/technique/%s/edit/' % s.pk)
+        self.assertTrue(s.name in response.content)
         self.failUnlessEqual(response.status_code, 200)
+    
+    def test_edit_POST(self):
+        s = Technique.objects.all()[0]
+        self.assertTrue(s.level.pk == 1)
+
+        d = {'type': 3, 'level': 2, 'name': 'Test Position2', }
+        response = self.client.post('/technique/%s/edit/' % s.pk, d)
+        self.failUnlessEqual(response.status_code, 302)
+        
+        s = Technique.objects.all()[0]
+        self.assertTrue(s.level.pk == 2)

@@ -2,7 +2,7 @@
 
 {% block content %}
     <h1 style="float: left;">{{ t.name }}</h1>
-    <a href="/technique/{{ t.uuid }}/edit" style="display: block; margin-top: 22px; padding-left:10px; font-size: 8pt">Edit</a>
+    <a href="{{ t.get_absolute_url }}edit" style="display: block; margin-top: 22px; padding-left:10px; font-size: 8pt">Edit</a>
     <div style="padding-top: 20px;">
         {% if t.youtube_id %}
         <div class="content-item">

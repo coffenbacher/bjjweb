@@ -27,6 +27,6 @@ def create(request, pk=None):
             t = f.save()
             return redirect(reverse('technique.views.view', args=(t.pk,)))
     else:
-        f = TechniqueForm()
+        f = TechniqueForm(instance=t)
     
     return render_to_response('technique/create.html', {'f': f}, RequestContext(request))
