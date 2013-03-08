@@ -19,13 +19,9 @@ def render(request, id):
     f = Flow.objects.get(id=id)
     nodes = f.get_nodes()
     links = []
-    for p in f.positions.all():
-        for s in p.start_submission.filter(id__in=f.submissions.values_list("id", flat=True)):
-            links.append({"source": p.get_uuid(), "target": s.get_uuid(), "value": 1})
-        for pi in p.start_pis.filter(id__in=f.positional_improvements.values_list("id", flat=True)):
-            links.append({"source": p.get_uuid(), "target": pi.get_uuid(), "value": 1})
-        for pi in p.end_pis.filter(id__in=f.positional_improvements.values_list("id", flat=True)):
-            links.append({"target": p.get_uuid(), "source": pi.get_uuid(), "value": 1})
+    for t in f.techniques.all():
+        if t.start:
+            links.append({'source': t.start, 'target': t.pk})
 
     res = json.dumps({"nodes": nodes, "links": links})
     return HttpResponse(res)
@@ -46,10 +42,4 @@ def create(request, id=None):
         else:
             form = FlowForm()
 
-    valid_subs = {}
-    valid_pis = {}
-    for p in Position.objects.all():
-        valid_subs[p.pk] = [dict({'from': p.name}, **i) for i in p.start_submission.values('id', 'name')] 
-        valid_pis[p.pk] = [dict({'from': p.name}, **i) for i in p.start_pis.values("id", "name")]
-
-    return render_to_response('flow/create.html', {'form': form, 'valid_pis': json.dumps(valid_pis), 'valid_subs': json.dumps(valid_subs)}, RequestContext(request))
+    return render_to_response('flow/create.html', {'form': form}, RequestContext(request))

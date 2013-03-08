@@ -7,26 +7,17 @@ from django.contrib.auth.models import User
 class Flow(TimeStampedModel):
     user = models.ForeignKey(User)
     name = models.CharField(max_length=200)
-    positions = models.ManyToManyField(Position)
-    submissions = models.ManyToManyField(Submission, blank=True)
-    positional_improvements = models.ManyToManyField(PositionalImprovement, blank=True)
+    techniques = models.ManyToManyField(Technique, blank=True)
     
-    def techniques(self):
-        ts = []
-        ts += list(self.positions.all())
-        ts += list(self.submissions.all())
-        ts += list(self.positional_improvements.all())
-        return ts
-        
     def get_nodes(self):
         nodes = []
         
-        for p in self.techniques():
+        for p in self.techniques.all():
             nodes.append({
-                'color': p.color,
+                'color': 'brown', #p.color, #FIX THIS
                 'url': p.get_absolute_url(),
                 'name': p.name,
-                'uuid': p.uuid,
+                'pk': p.pk,
             })
         
         return nodes

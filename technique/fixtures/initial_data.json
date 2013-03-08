@@ -1,37 +1,10 @@
 [
     {
-        "pk": 1, 
-        "model": "technique.positionalimprovementtype", 
-        "fields": {
-            "created": "2013-02-12T00:07:45.823Z", 
-            "modified": "2013-02-12T00:07:45.848Z", 
-            "name": "Sweep"
-        }
-    }, 
-    {
-        "pk": 2, 
-        "model": "technique.positionalimprovementtype", 
-        "fields": {
-            "created": "2013-02-12T00:07:51.581Z", 
-            "modified": "2013-02-12T00:07:51.582Z", 
-            "name": "Pass"
-        }
-    }, 
-    {
-        "pk": 3, 
-        "model": "technique.positionalimprovementtype", 
-        "fields": {
-            "created": "2013-02-12T00:08:21.804Z", 
-            "modified": "2013-02-12T00:08:21.804Z", 
-            "name": "Escape"
-        }
-    }, 
-    {
         "pk": 3, 
         "model": "technique.level", 
         "fields": {
-            "created": "2013-02-11T18:42:36.853Z", 
-            "modified": "2013-02-11T18:42:36.853Z", 
+            "created": "2013-03-08T08:47:28.701Z", 
+            "modified": "2013-03-08T08:47:28.701Z", 
             "name": "Advanced"
         }
     }, 
@@ -39,8 +12,8 @@
         "pk": 2, 
         "model": "technique.level", 
         "fields": {
-            "created": "2013-02-11T18:42:30.149Z", 
-            "modified": "2013-02-11T18:42:30.150Z", 
+            "created": "2013-03-08T08:47:23.245Z", 
+            "modified": "2013-03-08T08:47:23.245Z", 
             "name": "Intermediate"
         }
     }, 
@@ -48,9 +21,36 @@
         "pk": 1, 
         "model": "technique.level", 
         "fields": {
-            "created": "2013-02-11T18:42:20.758Z", 
-            "modified": "2013-02-11T18:42:59.046Z", 
+            "created": "2013-03-08T08:47:15.567Z", 
+            "modified": "2013-03-08T08:47:15.615Z", 
             "name": "Fundamental"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "technique.techniquetype", 
+        "fields": {
+            "created": "2013-03-08T08:33:43.031Z", 
+            "modified": "2013-03-08T08:33:43.032Z", 
+            "name": "Submission"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "technique.techniquetype", 
+        "fields": {
+            "created": "2013-03-08T08:33:46.840Z", 
+            "modified": "2013-03-08T08:33:46.840Z", 
+            "name": "Sweep"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "technique.techniquetype", 
+        "fields": {
+            "created": "2013-03-08T08:33:53.287Z", 
+            "modified": "2013-03-08T08:33:53.288Z", 
+            "name": "Position"
         }
     }
 ]

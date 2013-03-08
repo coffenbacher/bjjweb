@@ -3,27 +3,27 @@
         "pk": 3, 
         "model": "technique.level", 
         "fields": {
-            "modified": "2013-02-11T18:42:36.853Z", 
+            "modified": "2013-03-08T08:47:28.701Z", 
             "name": "Advanced", 
-            "created": "2013-02-11T18:42:36.853Z"
+            "created": "2013-03-08T08:47:28.701Z"
         }
     }, 
     {
         "pk": 2, 
         "model": "technique.level", 
         "fields": {
-            "modified": "2013-02-11T18:42:30.150Z", 
+            "modified": "2013-03-08T08:47:23.245Z", 
             "name": "Intermediate", 
-            "created": "2013-02-11T18:42:30.149Z"
+            "created": "2013-03-08T08:47:23.245Z"
         }
     }, 
     {
         "pk": 1, 
         "model": "technique.level", 
         "fields": {
-            "modified": "2013-02-11T18:42:59.046Z", 
+            "modified": "2013-03-08T08:47:15.615Z", 
             "name": "Fundamental", 
-            "created": "2013-02-11T18:42:20.758Z"
+            "created": "2013-03-08T08:47:15.567Z"
         }
     }
 ]

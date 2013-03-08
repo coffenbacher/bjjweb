@@ -6,8 +6,7 @@ from django.test.client import Client
 from django.contrib.auth.models import *
 
 class FlowTest(TestCase):
-    fixtures = ['initial_data.json', 'test_submission.json', 
-                'test_positional_improvement.json', 'test_position.json', 'test_flow.json']
+    fixtures = ['initial_data.json', 'test_flows.json', 'test_users.json', 'test_techniques.json']
 
     def setUp(self):
         # Every test needs a client.
@@ -26,11 +25,11 @@ class FlowTest(TestCase):
 
     def test_flow_render(self):
         f = Flow.objects.all()[0]
-        p = Position.objects.get(name='Test Guard')
-        response = self.client.get('/flow/%s/render/' % f.id)
+        p = Technique.objects.get(name='Test Armbar')
+        response = self.client.get('/flow/%s/render/' % f.pk)
         j = json.loads(response.content)
         for l in j['links']:
-            self.assertFalse(l['source'] == p.uuid) 
+            self.assertFalse(l['source'] == p.pk) 
         self.assertTrue(j)
         self.failUnlessEqual(response.status_code, 200)
     

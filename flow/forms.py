@@ -7,7 +7,5 @@ class FlowForm(ModelForm):
         model = Flow
         exclude = ('user',)
         widgets = {
-            'positions': CheckboxSelectMultiple(),
-            'submissions': CheckboxSelectMultiple(),
-            'positional_improvements': CheckboxSelectMultiple()
+            'techniques': CheckboxSelectMultiple(),
         }
