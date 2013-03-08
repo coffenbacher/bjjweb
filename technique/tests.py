@@ -34,6 +34,7 @@ class LoggedInTest(TestCase):
     def test_list(self):
         response = self.client.get('/technique/')
         self.failUnlessEqual(response.status_code, 200)
+        self.assertFalse('RelatedManager' in response.content)
 
     def test_create_GET(self):
         response = self.client.get('/technique/create/')

@@ -32,7 +32,9 @@
             <img src="{{ technique.images.all.0.image.url }}" style="width:100px; float: left;">
             <div style="float: left; padding-left: 20px; width: 150px;">
                 {{ technique.name }}
-                <div style="font-style: italic; font-size: 10pt;" >from {{ technique.start }}</div>
+                {% if technique.start %}
+                    <div style="font-style: italic; font-size: 10pt;" >from {{ technique.start }}</div>
+                {% endif %}
             </div>
         </li>
         </a>

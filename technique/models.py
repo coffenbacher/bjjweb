@@ -93,8 +93,8 @@ class SubmissionType(TimeStampedModel):
 class PositionalImprovement(Technique):
     color = "green"
     type = models.ForeignKey("PositionalImprovementType")
-    start = models.ForeignKey(Position, related_name="start")
-    end = models.ForeignKey(Position, related_name="end")
+    start = models.ForeignKey(Position, related_name="start_pis")
+    end = models.ForeignKey(Position, related_name="end_pis")
     
     def get_form(self):
         from forms import *
