@@ -1,10 +1,10 @@
 import pdb
+from helpers import video_id
 from django_extensions.db.fields import UUIDField
 from django.core.urlresolvers import reverse
 from django.db import models
 from django_extensions.db.models import TimeStampedModel
 from django.contrib.contenttypes import generic
-from media.models import *
 
 # Create your models here.
 class Technique(TimeStampedModel):
@@ -15,6 +15,18 @@ class Technique(TimeStampedModel):
     level = models.ForeignKey("Level", default=1)
     description = models.TextField(null=True, blank=True)
     uuid = UUIDField(auto=True) 
+    youtube_id = models.CharField(max_length=30, null=True, blank=True)
+    youtube_link = models.CharField(max_length=200, null=True, blank=True)
+    youtube_start = models.PositiveIntegerField(null=True, blank=True)
+
+    def parse_youtube_id(self):
+        self.youtube_id = video_id(self.youtube_link)
+        return True
+    
+    def save(self, *args, **kwargs):
+        if self.pk is None and self.youtube_link:
+            self.parse_youtube_id()
+        return super(Technique, self).save(*args, **kwargs)
 
     @classmethod
     def get_technique_or_none(cls, uuid):
@@ -38,7 +50,6 @@ class Technique(TimeStampedModel):
 
     def handle_forms(self, request):
         from forms import *
-        from media.forms import *
         if self.uuid:
             kwargs = {'instance': self}
         else:
@@ -50,7 +61,7 @@ class Technique(TimeStampedModel):
         elif request.POST['tech-type'] == 'p-improvement':
             f = PositionalImprovementForm(request.POST, **kwargs)
 
-        if f.is_valid() and v.is_valid():
+        if f.is_valid():
             t = f.save()
             return t
         

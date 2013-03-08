@@ -127,7 +127,6 @@ INSTALLED_APPS = (
     'registration',
     'bjjprofile',
     'technique',
-    'media',
     'flow'
 )
 
