@@ -37,6 +37,9 @@ class Technique(TimeStampedModel):
     positions = PositionManager()
     submissions = SubmissionManager()
 
+    class Meta:
+        ordering = ['type', 'level']
+        
     def parse_youtube_id(self):
         self.youtube_id = video_id(self.youtube_link)
         return True
