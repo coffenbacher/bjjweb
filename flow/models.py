@@ -8,7 +8,7 @@ class Flow(TimeStampedModel):
     user = models.ForeignKey(User)
     name = models.CharField(max_length=200)
     techniques = models.ManyToManyField(Technique, blank=True)
-    
+
     def get_nodes(self):
         nodes = []
         

@@ -70,3 +70,10 @@ class FlowTest(TestCase):
         response = self.client.get('/static/js/d3.v2.js')
         self.failUnlessEqual(response.status_code, 200)
 
+    def test_flow_list_count(self):
+        f = Flow.objects.all()[0]
+        response = self.client.get('/flow/%s/render/' % f.pk)
+        self.assertTrue(': %s' % f.techniques.count() in response.content)
+        
+
+

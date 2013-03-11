@@ -8,12 +8,8 @@
         <a href="/flow/{{ flow.id }}">
         <li class="content-item">
             <h2>{{ flow.name }}</h2>
-            <div>
-                <ul>
-                    <li>Positions: {{ flow.positions.count }}</li>
-                    <li>Submissions: {{ flow.submissions.count }}</li>
-                    <li>Positional improvements: {{ flow.positional_improvements.count }}</li>
-                </ul>
+            <div style="padding-left:5px;">
+               Techniques: {{ flow.techniques.count }}
             </div>
         </li>
         </a>
