@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
 
+{% block head %}
+    {{ form.media }}
+{% endblock %}
+
 {% block includes %}
-<link href="/static/force.css" rel="stylesheet" type="text/css">
-<script src="/static/d3.v2.min.js" type="text/javascript"></script>
+
 <script type="text/javascript">
 {% autoescape off %}
-    valid_subs = {{valid_subs}};
-    valid_pis = {{valid_pis}};
+    //valid_subs = {{valid_subs}};
+    //valid_pis = {{valid_pis}};
 {% endautoescape %}
 
     var update = function(){
@@ -45,8 +48,8 @@
     };
 
     $(document).ready(function(){
-        update();
-        $("#positions input").change(update);
+        //update();
+        //$("#positions input").change(update);
     });
 </script>
 {% endblock %}
@@ -65,21 +68,6 @@
         <a href="/technique/create/">Add new</a>
     </div>
 
-<!--    <div id="positions">
-        <h2>Positions</h2>
-            {{ form.positions }}
-        <a href="/technique/create/">Add new</a>
-    </div>
-    <div class="dependent" id="submissions">
-        <h2>Submissions</h2>
-            {{ form.submissions }}
-        <a href="/technique/create/">Add new</a>
-    </div>
-    <div class="dependent" id="pis">
-        <h2>Positional Improvements</h2>
-            {{ form.positional_improvements }}
-        <a href="/technique/create/">Add new</a>
-    </div>-->
     <input type="submit" id="create-button" />
     <div style="clear:both;"></div>
     </form>
