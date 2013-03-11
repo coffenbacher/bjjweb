@@ -23,6 +23,7 @@
         "fields": {
             "modified": "2013-03-08T08:33:53.288Z", 
             "name": "Position", 
+            "color": "Brown", 
             "created": "2013-03-08T08:33:53.287Z"
         }
     }, 
@@ -46,7 +47,7 @@
             "created": "2013-03-08T08:49:22.064Z", 
             "modified": "2013-03-08T08:49:22.067Z", 
             "created_by": 1, 
-            "start": null, 
+            "start": 2, 
             "youtube_id": null, 
             "youtube_start": null, 
             "type": 3, 

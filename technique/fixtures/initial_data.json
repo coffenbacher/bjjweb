@@ -32,6 +32,7 @@
         "fields": {
             "created": "2013-03-08T08:33:43.031Z", 
             "modified": "2013-03-08T08:33:43.032Z", 
+            "color": "Red",
             "name": "Submission"
         }
     }, 
@@ -41,6 +42,7 @@
         "fields": {
             "created": "2013-03-08T08:33:46.840Z", 
             "modified": "2013-03-08T08:33:46.840Z", 
+            "color": "Green",
             "name": "Sweep"
         }
     }, 
@@ -50,6 +52,7 @@
         "fields": {
             "created": "2013-03-08T08:33:53.287Z", 
             "modified": "2013-03-08T08:33:53.288Z", 
+            "color": "Brown",
             "name": "Position"
         }
     }

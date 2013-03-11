@@ -125,10 +125,10 @@ var create_links = function(j){
     return j;
 }
 
-var lookup_node = function(uuid, nodes){
+var lookup_node = function(pk, nodes){
     var i = 0;
     for (n in nodes){
-        if (nodes[n].uuid == uuid)
+        if (nodes[n].pk == pk)
             return nodes[n];
         i++;
     }

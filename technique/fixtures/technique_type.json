@@ -5,6 +5,7 @@
         "fields": {
             "modified": "2013-03-08T08:33:43.032Z", 
             "name": "Submission", 
+            "color": "Red",
             "created": "2013-03-08T08:33:43.031Z"
         }
     }, 
@@ -14,6 +15,7 @@
         "fields": {
             "modified": "2013-03-08T08:33:46.840Z", 
             "name": "Sweep", 
+            "color": "Green",
             "created": "2013-03-08T08:33:46.840Z"
         }
     }, 
@@ -23,6 +25,7 @@
         "fields": {
             "modified": "2013-03-08T08:33:53.288Z", 
             "name": "Position", 
+            "color": "Brown",
             "created": "2013-03-08T08:33:53.287Z"
         }
     }

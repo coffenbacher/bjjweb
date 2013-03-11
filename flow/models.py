@@ -14,7 +14,7 @@ class Flow(TimeStampedModel):
         
         for p in self.techniques.all():
             nodes.append({
-                'color': 'brown', #p.color, #FIX THIS
+                'color': p.type.color,
                 'url': p.get_absolute_url(),
                 'name': p.name,
                 'pk': p.pk,

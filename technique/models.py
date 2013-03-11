@@ -58,6 +58,7 @@ class Technique(TimeStampedModel):
 
 class TechniqueType(TimeStampedModel):
     name = models.CharField(max_length=200)
+    color = models.CharField(max_length=200)
     
     def __unicode__(self):
         return self.name

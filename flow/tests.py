@@ -33,6 +33,19 @@ class FlowTest(TestCase):
         self.assertTrue(j)
         self.failUnlessEqual(response.status_code, 200)
     
+    def test_flow_color(self):
+        f = Flow.objects.all()[0]
+        response = self.client.get('/flow/%s/render/' % f.pk)
+        self.assertTrue('color' in response.content)
+
+    def test_flow_links(self):
+        f = Flow.objects.all()[0]
+        p = Technique.objects.get(name='Test Armbar')
+        response = self.client.get('/flow/%s/render/' % f.pk)
+        j = json.loads(response.content)
+        self.assertTrue('links' in j)
+        self.assertTrue(len(j['links']))
+            
     def test_flow_create_GET(self):
         response = self.client.get('/flow/create/')
         self.failUnlessEqual(response.status_code, 200)
