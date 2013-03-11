@@ -42,7 +42,7 @@ class Technique(TimeStampedModel):
         return True
     
     def save(self, *args, **kwargs):
-        if self.pk is None and self.youtube_link:
+        if self.youtube_link:
             self.parse_youtube_id()
         return super(Technique, self).save(*args, **kwargs)
 

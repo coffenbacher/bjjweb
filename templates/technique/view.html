@@ -9,9 +9,11 @@
             <iframe width="500px" height="400px" src="http://www.youtube.com/embed/{{ t.youtube_id }}?rel=0" frameborder="0" allowfullscreen></iframe>
         </div>
         {% endif %}
+        {% if t.description %}
         <div class="content-item" style="width:300px;">
             {{ t.description }}
         </div>
+        {% endif %}
     </div>
     <div style="clear:both">
         <h2>Flows containing {{ t.name }}</h2>

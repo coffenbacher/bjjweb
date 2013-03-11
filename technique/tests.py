@@ -36,6 +36,13 @@ class LoggedInTest(TestCase):
         self.failUnlessEqual(response.status_code, 200)
         self.assertFalse('RelatedManager' in response.content)
 
+    def test_create_youtube(self):
+        t = Technique(name='test sub', type=TechniqueType.objects.all()[0], 
+            level=Level.objects.all()[0], youtube_link='http://www.youtube.com/watch?v=lfiXMeyY15s',
+            created_by=User.objects.all()[0])
+        t.save()
+        self.failUnlessEqual(t.youtube_id, 'lfiXMeyY15s')
+
     def test_create_GET(self):
         response = self.client.get('/technique/create/')
         self.assertTrue('Name' in response.content)
