@@ -1,0 +1,110 @@
+[
+    {
+        "pk": 3, 
+        "model": "technique.techniquetype", 
+        "fields": {
+            "modified": "2013-03-08T08:33:53.288Z", 
+            "name": "Position", 
+            "created": "2013-03-08T08:33:53.287Z"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "technique.techniquetype", 
+        "fields": {
+            "modified": "2013-03-08T08:33:46.840Z", 
+            "name": "Sweep", 
+            "created": "2013-03-08T08:33:46.840Z"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "coffenbacher", 
+            "first_name": "", 
+            "last_name": "", 
+            "is_active": true, 
+            "is_superuser": true, 
+            "is_staff": true, 
+            "last_login": "2013-03-08T02:56:52.052Z", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "pbkdf2_sha256$10000$CGVUkfwKWUes$89JJroabnf0zt3zYZrmpAa1HoslNnsKbendwHZQlDaU=", 
+            "email": "charles.offenbacher@gmail.com", 
+            "date_joined": "2013-03-08T02:56:52.052Z"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "technique.techniquetype", 
+        "fields": {
+            "modified": "2013-03-08T08:33:43.032Z", 
+            "name": "Submission", 
+            "created": "2013-03-08T08:33:43.031Z"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "technique.level", 
+        "fields": {
+            "modified": "2013-02-11T18:42:59.046Z", 
+            "name": "Fundamental", 
+            "created": "2013-02-11T18:42:20.758Z"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "technique.technique", 
+        "fields": {
+            "end": null, 
+            "description": null, 
+            "level": 1, 
+            "youtube_link": null, 
+            "created": "2013-03-08T08:34:40.678Z", 
+            "modified": "2013-03-08T08:34:40.679Z", 
+            "created_by": 1, 
+            "start": null, 
+            "youtube_id": null, 
+            "youtube_start": null, 
+            "type": 3, 
+            "name": "Mount"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "technique.technique", 
+        "fields": {
+            "end": null, 
+            "description": null, 
+            "level": 1, 
+            "youtube_link": null, 
+            "created": "2013-03-08T08:35:00.938Z", 
+            "modified": "2013-03-08T08:35:00.939Z", 
+            "created_by": 1, 
+            "start": null, 
+            "youtube_id": null, 
+            "youtube_start": null, 
+            "type": 2, 
+            "name": "Bump"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "technique.technique", 
+        "fields": {
+            "end": null, 
+            "description": null, 
+            "level": 1, 
+            "youtube_link": null, 
+            "created": "2013-03-08T08:35:12.745Z", 
+            "modified": "2013-03-08T08:35:12.746Z", 
+            "created_by": 1, 
+            "start": null, 
+            "youtube_id": null, 
+            "youtube_start": null, 
+            "type": 1, 
+            "name": "Armbar"
+        }
+    }
+]

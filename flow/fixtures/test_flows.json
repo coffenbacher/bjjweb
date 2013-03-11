@@ -1,0 +1,34 @@
+[
+    {
+        "pk": 1, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "coffenbacher", 
+            "first_name": "", 
+            "last_name": "", 
+            "is_active": true, 
+            "is_superuser": true, 
+            "is_staff": true, 
+            "last_login": "2013-03-08T08:46:09.817Z", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "pbkdf2_sha256$10000$aEAQ4qwXgC9Z$t4GyQWGSt6WPxR74Yqwuk0B4u5y+Vs+sxIxnVrjSSIk=", 
+            "email": "c@bjjweb.com", 
+            "date_joined": "2013-03-08T08:45:49.902Z"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "flow.flow", 
+        "fields": {
+            "user": 1, 
+            "techniques": [
+                2, 
+                1
+            ], 
+            "modified": "2013-03-08T09:03:16.248Z", 
+            "name": "Test flow", 
+            "created": "2013-03-08T09:03:16.215Z"
+        }
+    }
+]
