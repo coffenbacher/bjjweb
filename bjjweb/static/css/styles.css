@@ -269,3 +269,76 @@ label.from {
     width: 100%;
     color: white;
 }
+
+.selector-available, .selector-chosen {
+    width: 200px;
+}
+
+
+.selector-chooser {
+    width: 50px;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background: none !important;
+}
+
+#create .selector-chooser li {
+    width: 100%;
+}   
+
+#create .selector-remove {
+    background: url(/static/admin/img/selector-icons.gif) 0 -109px no-repeat;
+    cursor: pointer;
+    margin-bottom: 2px;
+}
+
+#create .selector-add {
+    background: url(/static/admin/img/selector-icons.gif) 0 -161px no-repeat;
+    cursor: pointer;
+    margin-bottom: 2px;
+}
+
+.selector-chosen {
+    margin-left: 10px;
+}
+
+
+.selector h2 {
+    font-size: 12pt;
+    border: none;
+}
+
+.selector input, .selector textarea, .selector select, .selector button {
+    width: 100%;
+    margin-left: 0px;
+}
+
+.selector .selector-available input {
+    width: 100%;
+}
+
+.selector .selector-filter {
+    padding: 0px;
+    border-width: 0px;
+}
+
+#id_techniques_filter label {
+    display: none;
+}
+
+.selector .selector-chooser {
+    width: 50px;
+}
+
+#create .selector .selector-chooser li a {
+    width: 15px;
+}
+
+.help-tooltip {
+    display: none;
+}
+    
+.selector-chosen h2 {
+    margin-bottom: 35px;
+}
