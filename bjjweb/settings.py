@@ -75,7 +75,7 @@ STATICFILES_FINDERS = (
 
 MEDIA_ROOT = os.path.join(STATIC_ROOT, 'media')
 MEDIA_UPLOAD_ROOT = os.path.join(MEDIA_ROOT, 'uploads')
-MEDIA_URL = STATIC_URL + 'media/'
+MEDIA_URL = '/media/'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '@7pw1!g$-f8#eqy7=&amp;ys++ztzn_u4=2q6xw_1*3z_zo%n$*z)+'

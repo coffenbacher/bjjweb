@@ -21,12 +21,22 @@ def create(request, pk=None):
         t = Technique.objects.get(pk=pk)
     else:
         t = Technique(created_by=request.user)
+    
+    image_formset = TechniqueImageFormset(queryset = t.images.all())
     if request.method == 'POST':
         f = TechniqueForm(request.POST, instance=t)
-        if f.is_valid():
+        image_formset = TechniqueImageFormset(request.POST, request.FILES)
+        if f.is_valid() and image_formset.is_valid():
             t = f.save()
+
+            for form in image_formset:
+                image = form.save(commit=False)
+                image.created_by = request.user
+                image.technique = t
+                image.save()
+                
             return redirect(reverse('technique.views.view', args=(t.pk,)))
     else:
         f = TechniqueForm(instance=t)
     
-    return render_to_response('technique/create.html', {'f': f}, RequestContext(request))
+    return render_to_response('technique/create.html', {'f': f, 'image_formset': image_formset}, RequestContext(request))

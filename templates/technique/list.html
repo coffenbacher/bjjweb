@@ -31,6 +31,7 @@
         <li class="content-item" style="min-height: 145px;">
             <img src="{{ technique.images.all.0.image.url }}" style="width:100px; float: left;">
             <div style="float: left; padding-left: 20px; width: 150px;">
+                {{ technique.images.0 }}
                 {{ technique.name }}
                 {% if technique.start %}
                     <div style="font-style: italic; font-size: 10pt;" >from {{ technique.start }}</div>

@@ -118,10 +118,18 @@ var render_links = function(d, force){
 
 
 var create_links = function(j){
+    var complete_links = [];
     for (l in j.links){
-        j.links[l].source = lookup_node(j.links[l].source, j.nodes);
-        j.links[l].target = lookup_node(j.links[l].target, j.nodes);
+        var source = lookup_node(j.links[l].source, j.nodes);
+        var target = lookup_node(j.links[l].target, j.nodes);
+        if (source && target) {
+            var link = j.links[l];
+            link.source = source;
+            link.target = target;
+            complete_links.push(link);
+        }
     }
+    j.links = complete_links;
     return j;
 }
 

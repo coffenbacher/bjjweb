@@ -1,4 +1,5 @@
 import pdb
+from photologue.models import ImageModel
 from helpers import video_id
 from django_extensions.db.fields import UUIDField
 from django.core.urlresolvers import reverse
@@ -19,6 +20,10 @@ class SubmissionManager(models.Manager):
 class SweepManager(models.Manager):
     def get_query_set(self):
         return super(SweepManager, self).get_query_set().filter(type__name='Sweep')
+
+class TechniqueImage(ImageModel):
+    technique = models.ForeignKey("Technique", related_name='images')
+    created_by = models.ForeignKey(User)
 
 class Technique(TimeStampedModel):
     name = models.CharField(max_length=200)
