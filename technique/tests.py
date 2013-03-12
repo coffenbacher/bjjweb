@@ -51,7 +51,7 @@ class LoggedInTest(TestCase):
         self.failUnlessEqual(response.status_code, 200)
         
     def test_create_position_POST(self):
-        d = {'type': 3, 'level': 1, 'name': 'Test Position', }
+        d = {'type': 3, 'level': 1, 'name': 'Test Position', 'form-TOTAL_FORMS': 1, 'form-INITIAL_FORMS': 0, 'form-MAX_NUM_FORMS': '', 'form-0-image': '', 'form-0-id': ''}
         response = self.client.post('/technique/create/', d)
         self.failUnlessEqual(response.status_code, 302)
         self.assertTrue(Technique.objects.get(name='Test Position'))
@@ -66,7 +66,8 @@ class LoggedInTest(TestCase):
         s = Technique.objects.all()[0]
         self.assertTrue(s.level.pk == 1)
 
-        d = {'type': 3, 'level': 2, 'name': 'Test Position2', }
+        d = {'type': 3, 'level': 2, 'name': 'Test Position2', 'form-TOTAL_FORMS': 1, 'form-INITIAL_FORMS': 0, 'form-MAX_NUM_FORMS': '', 'form-0-image': '', 'form-0-id': ''}
+        
         response = self.client.post('/technique/%s/edit/' % s.pk, d)
         self.failUnlessEqual(response.status_code, 302)
         

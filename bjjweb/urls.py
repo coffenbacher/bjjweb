@@ -22,12 +22,12 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 )
 
-if settings.DEBUG:
-    urlpatterns += patterns('',
-        (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT, 'show_indexes': True}),
-    )
-    urlpatterns += patterns('',
-        url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
-            'document_root': settings.MEDIA_ROOT,
-        }),
-   )
+#FIX THIS NEED SOMETHING BETTER FOR TESTS
+urlpatterns += patterns('',
+    (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT, 'show_indexes': True}),
+)
+urlpatterns += patterns('',
+    url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+        'document_root': settings.MEDIA_ROOT,
+    }),
+)
