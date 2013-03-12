@@ -11,46 +11,6 @@
     //valid_subs = {{valid_subs}};
     //valid_pis = {{valid_pis}};
 {% endautoescape %}
-
-    var update = function(){
-        $(".dependent input[type=checkbox]").attr("disabled", "disabled");
-        
-        //Label (FIX)
-        $(".from").remove();
-        for(pos in valid_subs){
-            for(sub in valid_subs[pos]){
-                var s = valid_subs[pos][sub];
-                $("#submissions input[value="+s.id+"]").parent().after("<label class='from'> from "+s.from+"</label>");
-            }
-        }
-
-        for(pos in valid_pis){
-            for(pi in valid_pis[pos]){
-                var s = valid_pis[pos][pi];
-                $("#pis input[value="+s.id+"]").parent().after("<label class='from'> from "+s.from+"</label>");
-            }
-        }
-
-
-        $("#positions input:checked").each(function(k, v){
-            var subs = valid_subs[$(v).val()];
-            for (i in subs){
-                $("#submissions input[value="+subs[i].id+"]").removeAttr("disabled");
-            }
-
-            var pis = valid_pis[$(v).val()];
-            for (i in pis){
-                $("#pis input[value="+pis[i].id+"]").removeAttr("disabled");
-            }
-        });
-
-        $(".dependent input[disabled=disabled]").removeAttr("checked");
-    };
-
-    $(document).ready(function(){
-        //update();
-        //$("#positions input").change(update);
-    });
 </script>
 {% endblock %}
 
