@@ -2,6 +2,22 @@
 
 {% block js %}
     <script type="text/javascript">
+        $(document).ready(function(){
+            $("#id_type").change(function(){
+                SUBMISSION = 1;
+                SWEEP = 2;
+                POSITION = 3;
+                if ($(this).val() == POSITION){
+                    $("#id_start").parent().hide();
+                    $("#id_end").parent().hide();
+                }
+                if ($(this).val() == SWEEP || $(this).val() == SUBMISSION){
+                    $("#id_start").parent().show();
+                    $("#id_end").parent().hide();
+                }
+
+            });
+        });
     </script>
 {% endblock %}
 
