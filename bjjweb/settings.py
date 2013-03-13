@@ -1,8 +1,15 @@
 import os
 import sys
 
+DEFAULT_FILE_STORAGE = 'bjjweb.s3utils.MediaRootS3BotoStorage'
+STATICFILES_STORAGE = 'bjjweb.s3utils.StaticRootS3BotoStorage'
+AWS_ACCESS_KEY_ID = 'AKIAI3APQKONXVPX26XA'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'bjjweb'
+
+S3_URL = 'http://s3.amazonaws.com/%s' % AWS_STORAGE_BUCKET_NAME
+
 PROJECT_PATH = os.path.dirname(os.path.realpath(__file__))
-# Django settings for bjjweb project.
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -51,11 +58,11 @@ USE_TZ = True
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = os.path.join(PROJECT_PATH, '../staticfiles')
+STATIC_ROOT = '/static/'#os.path.join(PROJECT_PATH, '../staticfiles')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = '/static/'
+STATIC_URL = S3_URL + STATIC_ROOT
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -73,9 +80,9 @@ STATICFILES_FINDERS = (
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
-MEDIA_ROOT = os.path.join(PROJECT_PATH, 'media')
-MEDIA_UPLOAD_ROOT = os.path.join(MEDIA_ROOT, 'uploads')
-MEDIA_URL = '/media/'
+MEDIA_ROOT = '/media/'#os.path.join(PROJECT_PATH, 'media')
+#MEDIA_UPLOAD_ROOT = os.path.join(MEDIA_ROOT, 'uploads')
+MEDIA_URL = S3_URL + MEDIA_ROOT
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '@7pw1!g$-f8#eqy7=&amp;ys++ztzn_u4=2q6xw_1*3z_zo%n$*z)+'
@@ -109,6 +116,7 @@ TEMPLATE_DIRS = (
 INSTALLED_APPS = (
     'gunicorn',
     'south',
+    'storages',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -182,3 +190,4 @@ IGNORE_TESTS = (
 
 LOGIN_URL = '/accounts/login'
 LOGIN_REDIRECT_URL = '/users/'
+
