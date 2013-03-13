@@ -352,3 +352,9 @@ label.from {
     display: block;
     float: left;
 }
+    
+#technique-form input[type="checkbox"] {
+    width:50px;
+    margin-top:12px;
+    margin-left: 0px;
+}
