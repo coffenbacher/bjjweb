@@ -179,3 +179,6 @@ TEST_RUNNER="ignoretests.DjangoIgnoreTestSuiteRunner"
 IGNORE_TESTS = (
             'registration',
         )
+
+LOGIN_URL = '/accounts/login'
+LOGIN_REDIRECT_URL = '/users/'

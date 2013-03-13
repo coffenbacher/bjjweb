@@ -34,6 +34,10 @@ class SimpleTest(TestCase):
         response = self.client.get('/accounts/login/')
         self.failUnlessEqual(response.status_code, 200)
     
+    def test_login_POST(self):
+        response = self.client.post('/accounts/login', {'username': 'test@test.com', 'password': 'testests'})
+        self.failUnlessEqual(response.status_code, 301)
+    
     def test_profile(self):
         response = self.client.get('/users/t%40t.com/')
         self.failUnlessEqual(response.status_code, 200)
