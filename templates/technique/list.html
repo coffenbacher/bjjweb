@@ -29,7 +29,9 @@
     {% for technique in techniques %}
         <a href="{{ technique.get_absolute_url }}"> 
         <li class="content-item" style="min-height: 145px;">
-            <img src="{{ technique.images.all.0.image.url }}" style="width:100px; float: left;">
+            {% if technique.images.all.0 %}
+                <img src="{{ technique.images.all.0.image.url }}" style="width:100px; float: left;">
+            {% endif %}    
             <div style="float: left; padding-left: 20px; width: 150px;">
                 {{ technique.images.0 }}
                 {{ technique.name }}
