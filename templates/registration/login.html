@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <form method="POST">
+    <form method="POST" class="login-form form">
         {% csrf_token %}
-        {{ form }}
-        <input type="submit">
+        {{ form.as_ul }}
+        <input type="submit" style="clear:both; margin-left:0px;"> 
+        <div style="clear:both;"></div>
     </form>
 
 {% endblock %}

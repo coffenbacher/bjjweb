@@ -342,3 +342,13 @@ label.from {
 .selector-chosen h2 {
     margin-bottom: 35px;
 }
+
+.login-form input {
+    float: none;
+}
+
+.login-form label {
+    width: 80px;
+    display: block;
+    float: left;
+}
