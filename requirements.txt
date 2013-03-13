@@ -1,11 +1,14 @@
 Django==1.4.3
+PIL==1.1.7
 South==0.7.6
 argparse==1.2.1
 distribute==0.6.27
 dj-database-url==0.2.1
 django-extensions==1.0.2
 -e git://github.com/davedash/django-fixture-magic@34dabb0aab10b9a4aeef623fe35545ceab25c824#egg=django_fixture_magic-dev
+django-ignoretests==0.3.2
 django-photologue==2.5
+django-registration==0.8
 gunicorn==0.17.2
 ipython==0.13.1
 newrelic==1.9.0.21
