@@ -73,7 +73,7 @@ STATICFILES_FINDERS = (
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
-MEDIA_ROOT = os.path.join(STATIC_ROOT, 'media')
+MEDIA_ROOT = os.path.join(PROJECT_PATH, 'media')
 MEDIA_UPLOAD_ROOT = os.path.join(MEDIA_ROOT, 'uploads')
 MEDIA_URL = '/media/'
 
