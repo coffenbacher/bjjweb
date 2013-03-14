@@ -11,9 +11,13 @@
                     $("#id_start").parent().hide();
                     $("#id_end").parent().hide();
                 }
-                if ($(this).val() == SWEEP || $(this).val() == SUBMISSION){
+                if ($(this).val() == SUBMISSION){
                     $("#id_start").parent().show();
                     $("#id_end").parent().hide();
+                }
+                if ($(this).val() == SWEEP){
+                    $("#id_start").parent().show();
+                    $("#id_end").parent().show();
                 }
 
             });

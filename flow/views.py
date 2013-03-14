@@ -22,6 +22,8 @@ def render(request, id):
     for t in f.techniques.all():
         if t.start:
             links.append({'source': t.start.pk, 'target': t.pk})
+        if t.end:
+            links.append({'source': t.pk, 'target': t.end.pk})
 
     res = json.dumps({"nodes": nodes, "links": links})
     return HttpResponse(res)
