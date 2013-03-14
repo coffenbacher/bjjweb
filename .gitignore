@@ -4,3 +4,4 @@ staticfiles
 *.swp
 media
 .env
+:
