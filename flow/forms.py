@@ -1,4 +1,5 @@
 from django.contrib.admin.widgets import FilteredSelectMultiple
+from django.conf import settings
 from django.forms.widgets import *
 from django.forms import ModelForm
 from models import *
@@ -14,6 +15,6 @@ class FlowForm(ModelForm):
         }
     
     class Media:
-        css = { 'all': ('/static/admin/css/widgets.css',), }
+        css = { 'all': (settings.STATIC_URL + 'admin/css/widgets.css',), }
         js = ('/admin/jsi18n/',)
         
