@@ -87,7 +87,7 @@ var render_links = function(d, force){
       .attr("class", function(d) { return "link " + d.type; })
     
     path.attr("id", function(d){
-        return d.source.uuid + d.target.uuid;
+        return d.source.pk + d.target.pk;
     });
 
     path.attr("d", function(d) {
