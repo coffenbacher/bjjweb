@@ -1,7 +1,10 @@
 import pdb
+from django.conf import settings
 from django.test import TestCase
 from django.test.client import Client
 from django.contrib.auth.models import *
+from django.contrib.sites.models import Site
+from urllib2 import urlopen
 
 class SimpleTest(TestCase):
     def setUp(self):
@@ -14,8 +17,10 @@ class SimpleTest(TestCase):
         self.failUnlessEqual(response.status_code, 200)
     
     def test_css(self):
-        response = self.client.get('/static/css/styles.css')
-        self.failUnlessEqual(response.status_code, 200)
+        if 'StaticFilesStorage' in settings.STATICFILES_STORAGE:
+            assert self.client.get(settings.STATIC_URL + 'css/styles.css')
+        else:
+            assert urlopen(settings.STATIC_URL + 'css/styles.css')
 
     def test_register_GET(self):
         response = self.client.get('/accounts/register/')

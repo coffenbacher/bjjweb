@@ -15,7 +15,7 @@ if 'StaticFilesStorage' in STATICFILES_STORAGE:
     MEDIA_ROOT = os.path.join(PROJECT_PATH, 'media')
     MEDIA_URL = '/media/'
 else:
-    S3_URL = 'http://s3.amazonaws.com/%s' % AWS_STORAGE_BUCKET_NAME
+    S3_URL = 'http://s3-us-west-2.amazonaws.com/%s' % AWS_STORAGE_BUCKET_NAME
     STATIC_ROOT = '/static/'
     STATIC_URL = S3_URL + STATIC_ROOT
     MEDIA_ROOT = '/media/'#os.path.join(PROJECT_PATH, 'media')

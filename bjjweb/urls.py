@@ -23,11 +23,12 @@ urlpatterns = patterns('',
 )
 
 #FIX THIS NEED SOMETHING BETTER FOR TESTS
-urlpatterns += patterns('',
-    (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT, 'show_indexes': True}),
-)
-urlpatterns += patterns('',
-    url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
-        'document_root': settings.MEDIA_ROOT,
-    }),
-)
+if 'StaticFilesStorage' in settings.STATICFILES_STORAGE:
+    urlpatterns += patterns('',
+        (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT, 'show_indexes': True}),
+    )
+    urlpatterns += patterns('',
+        url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+            'document_root': settings.MEDIA_ROOT,
+        }),
+    )
