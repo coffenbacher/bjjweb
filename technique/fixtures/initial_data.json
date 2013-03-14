@@ -65,5 +65,15 @@
             "modified": "2013-03-14T19:47:45.799Z", 
             "name": "Pass"
         }
+    }, 
+    {
+        "pk": 5, 
+        "model": "technique.techniquetype", 
+        "fields": {
+            "color": "Green", 
+            "created": "2013-03-14T19:56:56.462Z", 
+            "modified": "2013-03-14T19:56:56.463Z", 
+            "name": "Escape"
+        }
     }
 ]
