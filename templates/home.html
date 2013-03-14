@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="img-wrapper">
-    <img src="/static/img/home1.jpg">
+    <img src="{{ STATIC_URL }}static/img/home1.jpg">
 </div>
 <!--
 <div class="img-wrapper">
-    <img src="/static/home2.jpg">
+    <img src="{{ STATIC_URL }}static/home2.jpg">
 </div>
 <div class="img-wrapper">
-    <img src="/static/home3.jpg">
+    <img src="{{ STATIC_URL }}static/home3.jpg">
 </div>
 <div class="img-wrapper">
-    <img src="/static/home4.jpg">
+    <img src="{{ STATIC_URL }}static/home4.jpg">
 </div>-->
 {% if user.is_authenticated %}
 <div id="leader">
