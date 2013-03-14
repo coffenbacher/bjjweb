@@ -30,9 +30,9 @@
         "pk": 1, 
         "model": "technique.techniquetype", 
         "fields": {
+            "color": "Red", 
             "created": "2013-03-08T08:33:43.031Z", 
             "modified": "2013-03-08T08:33:43.032Z", 
-            "color": "Red",
             "name": "Submission"
         }
     }, 
@@ -40,9 +40,9 @@
         "pk": 2, 
         "model": "technique.techniquetype", 
         "fields": {
+            "color": "Green", 
             "created": "2013-03-08T08:33:46.840Z", 
             "modified": "2013-03-08T08:33:46.840Z", 
-            "color": "Green",
             "name": "Sweep"
         }
     }, 
@@ -50,10 +50,20 @@
         "pk": 3, 
         "model": "technique.techniquetype", 
         "fields": {
+            "color": "Brown", 
             "created": "2013-03-08T08:33:53.287Z", 
             "modified": "2013-03-08T08:33:53.288Z", 
-            "color": "Brown",
             "name": "Position"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "technique.techniquetype", 
+        "fields": {
+            "color": "Green", 
+            "created": "2013-03-14T19:47:45.798Z", 
+            "modified": "2013-03-14T19:47:45.799Z", 
+            "name": "Pass"
         }
     }
 ]
