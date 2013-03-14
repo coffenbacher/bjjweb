@@ -87,7 +87,7 @@ var render_links = function(d, force){
       .attr("class", function(d) { return "link " + d.type; })
     
     path.attr("id", function(d){
-        return d.source.pk + d.target.pk;
+        return d.source.pk.toString() + d.target.pk.toString();
     });
 
     path.attr("d", function(d) {
