@@ -51,10 +51,16 @@ class LoggedInTest(TestCase):
         self.failUnlessEqual(response.status_code, 200)
         
     def test_create_position_POST(self):
-        d = {'type': 3, 'level': 1, 'name': 'Test Position', 'form-TOTAL_FORMS': 1, 'form-INITIAL_FORMS': 0, 'form-MAX_NUM_FORMS': '', 'form-0-image': '', 'form-0-id': ''}
+        d = {'type': 3, 'level': 1, 'name': 'Test Position', 'images-TOTAL_FORMS': 1, 'images-INITIAL_FORMS': 0, 'images-MAX_NUM_FORMS': '', 'images-0-image': '', 'images-0-id': '', 'images-0-DELETE': '', 'images-0-id': '', 'images-0-technique': ''}
         response = self.client.post('/technique/create/', d)
         self.failUnlessEqual(response.status_code, 302)
         self.assertTrue(Technique.objects.get(name='Test Position'))
+
+    def test_create_incomplete_POST(self):
+        d = {'type': '', 'level': 1, 'name': 'Test Incomplete', 'images-TOTAL_FORMS': 1, 'images-INITIAL_FORMS': 0, 'images-MAX_NUM_FORMS': '', 'images-0-image': '', 'images-0-id': '', 'images-0-DELETE': '', 'images-0-id': '', 'images-0-technique': ''}
+        response = self.client.post('/technique/create/', d)
+        self.failUnlessEqual(response.status_code, 200)
+        self.assertFalse(Technique.objects.filter(name='Test Incomplete'))
 
     def test_edit_GET(self):
         s = Technique.objects.all()[0]
@@ -66,7 +72,7 @@ class LoggedInTest(TestCase):
         s = Technique.objects.all()[0]
         self.assertTrue(s.level.pk == 1)
 
-        d = {'type': 3, 'level': 2, 'name': 'Test Position2', 'form-TOTAL_FORMS': 1, 'form-INITIAL_FORMS': 0, 'form-MAX_NUM_FORMS': '', 'form-0-image': '', 'form-0-id': ''}
+        d = {'type': 3, 'level': 2, 'name': 'Test Position2', 'images-TOTAL_FORMS': 1, 'images-INITIAL_FORMS': 0, 'images-MAX_NUM_FORMS': '', 'images-0-image': '', 'images-0-id': '', 'images-0-DELETE': '', 'images-0-id': '', 'images-0-technique': ''}
         
         response = self.client.post('/technique/%s/edit/' % s.pk, d)
         self.failUnlessEqual(response.status_code, 302)

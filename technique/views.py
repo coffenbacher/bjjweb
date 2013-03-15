@@ -24,6 +24,8 @@ def create(request, pk=None):
     
     if request.method == 'POST':
         f = TechniqueForm(request.POST, instance=t)
+        image_formset = TechniqueImageFormset(request.POST, request.FILES, instance = t)
+        
         if f.is_valid():
             t = f.save(commit=False)
             image_formset = TechniqueImageFormset(request.POST, request.FILES, instance = t)
