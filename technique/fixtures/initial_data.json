@@ -75,5 +75,15 @@
             "modified": "2013-03-14T19:56:56.463Z", 
             "name": "Escape"
         }
+    }, 
+    {
+        "pk": 6, 
+        "model": "technique.techniquetype", 
+        "fields": {
+            "color": "Green", 
+            "created": "2013-03-15T05:28:12.322Z", 
+            "modified": "2013-03-15T05:28:12.323Z", 
+            "name": "Transition"
+        }
     }
 ]

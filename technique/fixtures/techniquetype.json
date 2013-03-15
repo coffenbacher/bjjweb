@@ -23,7 +23,7 @@
         "pk": 3, 
         "model": "technique.techniquetype", 
         "fields": {
-            "color": "Brown", 
+            "color": "#0B46BD", 
             "modified": "2013-03-08T08:33:53.288Z", 
             "name": "Position", 
             "created": "2013-03-08T08:33:53.287Z"
@@ -47,6 +47,16 @@
             "modified": "2013-03-14T19:56:56.463Z", 
             "name": "Escape", 
             "created": "2013-03-14T19:56:56.462Z"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "technique.techniquetype", 
+        "fields": {
+            "color": "Green", 
+            "modified": "2013-03-15T05:28:12.323Z", 
+            "name": "Transition", 
+            "created": "2013-03-15T05:28:12.322Z"
         }
     }
 ]
