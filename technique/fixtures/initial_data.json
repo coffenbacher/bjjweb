@@ -50,7 +50,7 @@
         "pk": 3, 
         "model": "technique.techniquetype", 
         "fields": {
-            "color": "Brown", 
+            "color": "#0B46BD", 
             "created": "2013-03-08T08:33:53.287Z", 
             "modified": "2013-03-08T08:33:53.288Z", 
             "name": "Position"

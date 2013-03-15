@@ -187,11 +187,11 @@ DATABASES['default'] = dj_database_url.config(
 if 'test' in sys.argv:
     DATABASES['default'] = {'ENGINE': 'django.db.backends.sqlite3'}
 
-TEST_RUNNER="ignoretests.DjangoIgnoreTestSuiteRunner"
-IGNORE_TESTS = (
-            'registration',
-        )
-
 LOGIN_URL = '/accounts/login'
 LOGIN_REDIRECT_URL = '/users/'
 
+TEST_RUNNER = 'ignoretests.DjangoIgnoreTestSuiteRunner'
+IGNORE_TESTS = (
+    'storages',
+    'registration'
+)
