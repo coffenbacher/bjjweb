@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <form method="POST">
+    <form method="POST" class="login-form form">
+        <h1>Sign up for BJJWeb.com</h1>
         {% csrf_token %}
         {{ form.as_ul }}
-        <input type="submit">
+        <input type="submit" style="clear:both; margin-left: 15px;">
+        <h4>No spam to your email, I promise. Just a login to a great jiu-jitsu site, so we can get better at this awesome sport.</h4>
     </form>
 {% endblock %}
 
