@@ -1,1 +1,3 @@
-'''BJJWEB Codebase'''
+BJJWEB Codebase
+
+python manage.py test
