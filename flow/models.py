@@ -1,3 +1,4 @@
+import random
 from technique.models import *
 from django.db import models
 from django_extensions.db.models import TimeStampedModel
@@ -18,6 +19,8 @@ class Flow(TimeStampedModel):
                 'url': p.get_absolute_url(),
                 'name': p.name,
                 'pk': p.pk,
+                'x': random.randint(0,100),
+                'y': random.randint(0,100),
             })
         
         return nodes

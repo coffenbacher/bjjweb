@@ -14,8 +14,8 @@ var redraw = function() {
 var initialize_force = function(d){
     d = create_links(d);
     
-    var w = $("#view").width();
-    var h = $("#view").height();
+    var w = $("#view").parent().width();
+    var h = $("#view").parent().height();
 
     var force = d3.layout.force()
                   .nodes(d.nodes)
@@ -98,7 +98,7 @@ var render_links = function(d, force){
       });
 
 
-    base.selectAll("path").each(function(d,i){
+/*    base.selectAll("path").each(function(d,i){
         var thing = base.append("svg:g")
             .attr("id", "thing")
             .style("fill", ARROW_COLOR);
@@ -113,7 +113,7 @@ var render_links = function(d, force){
         thing.append("use")
             .attr("xlink:href", "#"+this.id)
         .style("stroke", "black")
-    });
+    });*/
 }
 
 
