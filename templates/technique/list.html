@@ -28,9 +28,9 @@
     <ul style="clear: both">
     {% for technique in techniques %}
         <a href="{{ technique.get_absolute_url }}"> 
-        <li class="content-item" style="min-height: 145px;">
+        <li class="content-item" style="min-height: 165px;">
             {% if technique.images.all.0.image %}
-                <img src="{{ technique.images.all.0.image.url }}" style="width:100px; float: left;">
+                <img src="{{ technique.images.all.0.image.url }}" style="width:100px; max-height:75px; float: left;">
             {% endif %}    
             <div style="float: left; padding-left: 20px; width: 150px;">
                 {{ technique.images.0 }}
