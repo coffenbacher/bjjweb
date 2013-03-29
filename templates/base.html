@@ -13,14 +13,13 @@
             <img src="{{ STATIC_URL }}img/beltend.png">
             <div id="main-title"><h1><a href="/">BRAZILIAN JIU JITSU</a></h1></div>
             <div id="sub-title"><h2><a href="/">Learn from the community</a></h2>
-                {% if user.is_authenticated %}
                     <ul>
                         <li><a href="/flow/">Flows</a></li>
                         <li><a href="/technique/">Techniques</a></li>
-                        <li><a href="/users/">Users</a></li>
+                        {% if user.is_authenticated %}
+                            <li><a href="/users/">Users</a></li>
+                        {% endif %}
                     </ul>
-                {% endif %}
-            
             </div>
             <div style="clear:both;"></div>
         </div>

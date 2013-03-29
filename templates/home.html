@@ -24,8 +24,8 @@ or
 {% else %}
 <div id="leader">
     Learn Brazilian Jiu Jitsu from experts online for free. 
-    <p>BJJWeb takes the best videos available and organizes them for your training.</p>
-    <p>Also, check out our innovative "Flows" section that show how all the techniques in your arsenal fit together!</p>
+    <p>BJJWeb takes the best <a href="{% url technique.views.list %}">techniques</a> available and organizes them for your training.</p>
+    <p>Also, check out our innovative <a href="{% url flow.views.list %}">flows</a> section that show how all the techniques in your arsenal fit together!</p>
     <a href="/accounts/register">Sign Up (Free)</a> or 
     <a href="{% url django.contrib.auth.views.login %}">Log In</a>
 </div>
