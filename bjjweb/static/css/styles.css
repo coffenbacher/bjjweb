@@ -82,6 +82,10 @@ h1, h2 {
     color: #333;
 }
 
+#content ul a {
+    display: block;
+}
+
 .content-item {
     background: url('../img/greengi.png');
     float: left;
