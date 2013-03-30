@@ -6,9 +6,12 @@ var draw = function(d){
 }
 
 var redraw = function() {
+  var slider = $("#slider"); 
+  slider.slider("value", d3.event.scale);
+  var s = slider.slider("option", "value"); 
   d3.select("#base").attr("transform",
       "translate(" + d3.event.translate + ")"
-      + " scale(" + d3.event.scale + ")");
+      + " scale(" + s + ")");
 }
 
 var initialize_force = function(d){
@@ -31,14 +34,17 @@ var initialize_force = function(d){
     return force;
 }
 
+
 var initialize_svg = function(){
+    zm = d3.behavior.zoom().scaleExtent([0.1,2]).on("zoom", redraw)
     var base = d3.select("#view")
         .append("svg:svg")
         .attr("pointer-events", "all")
-        .call(d3.behavior.zoom().on("zoom", redraw))
+        .call(zm)
         .append("svg:g")
         .attr("id", "base")
         ;
+    $("#slider").slider("value", 1);
 
     // scale view
     base.append('svg:rect')
@@ -142,4 +148,13 @@ var lookup_node = function(pk, nodes){
             return nodes[n];
         i++;
     }
+}
+
+var slider_change = function(event, ui){
+    var s = $(this).slider("option", "value"); 
+    var base = d3.select("#base");
+    var current = d3.transform(base.attr("transform"));
+    current.scale = s;
+    zm.scale(current.scale);
+    base.attr("transform", current);
 }
