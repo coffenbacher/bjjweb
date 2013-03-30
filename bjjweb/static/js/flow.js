@@ -43,8 +43,10 @@ var initialize_svg = function(){
     // scale view
     base.append('svg:rect')
         .attr("id", "bg")
-        .attr("width", $("#view").width())
-        .attr("height", $("#view").height())
+        .attr("width", 15000)
+        .attr("height", 15000)
+        .attr("x", -7500)
+        .attr("y", -7500)
         .attr('opacity', 0);
 }
 
