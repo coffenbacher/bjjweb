@@ -34,7 +34,7 @@ class Technique(TimeStampedModel):
     end = models.ForeignKey("Technique", null=True, blank=True, related_name='ending_at')
     youtube_id = models.CharField(max_length=30, null=True, blank=True)
     youtube_link = models.CharField(max_length=200, null=True, blank=True)
-    youtube_start = models.PositiveIntegerField(null=True, blank=True)
+    youtube_start = models.PositiveIntegerField(null=True, blank=True, verbose_name="At second", default=0)
     created_by = models.ForeignKey(User)
     
     objects = models.Manager()
