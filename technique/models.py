@@ -68,6 +68,11 @@ class Technique(TimeStampedModel):
             return 'Sub: %s > %s' % (self.start.name, self.name)
         if self.type.name == 'Sweep':
             return 'Sweep: %s > %s' % (self.start.name, self.name)
+        if self.type.name == 'Pass':
+            return 'Pass: %s > %s' % (self.start.name, self.name)
+        if self.type.name == 'Transition':
+            return 'Transition: %s > %s' % (self.start.name, self.name)
+
 
         return self.name
 
