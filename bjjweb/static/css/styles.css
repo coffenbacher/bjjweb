@@ -275,9 +275,12 @@ label.from {
 }
 
 .selector-available, .selector-chosen {
-    width: 200px;
+    width: 400px;
 }
 
+.selector {
+    width: 100%;
+}
 
 .selector-chooser {
     width: 50px;

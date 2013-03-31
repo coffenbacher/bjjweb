@@ -62,19 +62,20 @@ class Technique(TimeStampedModel):
             return self.images.all()[0]
 
     def __unicode__(self):
-        if self.type.name == 'Position':
-            return 'Position: %s' % (self.name)
-        if self.type.name == 'Submission':
-            return 'Sub: %s > %s' % (self.start.name, self.name)
-        if self.type.name == 'Sweep':
-            return 'Sweep: %s > %s' % (self.start.name, self.name)
-        if self.type.name == 'Pass':
-            return 'Pass: %s > %s' % (self.start.name, self.name)
-        if self.type.name == 'Transition':
-            return 'Transition: %s > %s' % (self.start.name, self.name)
-
-
-        return self.name
+        try:
+            if self.type.name == 'Position':
+                return 'Position: %s' % (self.name)
+            if self.type.name == 'Submission':
+                return 'Sub: %s > %s' % (self.start.name, self.name)
+            if self.type.name == 'Sweep':
+                return 'Sweep: %s > %s' % (self.start.name, self.name)
+            if self.type.name == 'Pass':
+                return 'Pass: %s > %s' % (self.start.name, self.name)
+            if self.type.name == 'Transition':
+                return 'Transition: %s > %s' % (self.start.name, self.name)
+            return self.name
+        except:
+            return self.name
 
 class TechniqueType(TimeStampedModel):
     name = models.CharField(max_length=200)
