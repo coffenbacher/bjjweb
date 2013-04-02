@@ -19,6 +19,7 @@ class Flow(TimeStampedModel):
                 'url': p.get_absolute_url(),
                 'name': p.name,
                 'pk': p.pk,
+                'group': p.get_group_id(),
                 'x': random.randint(0,100),
                 'y': random.randint(0,100),
             })

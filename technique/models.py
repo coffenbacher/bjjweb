@@ -30,6 +30,7 @@ class Technique(TimeStampedModel):
     level = models.ForeignKey("Level", default=1)
     type = models.ForeignKey("TechniqueType")
     description = models.TextField(null=True, blank=True)
+    parent = models.ForeignKey("Technique", null=True, blank=True, related_name='children')
     start = models.ForeignKey("Technique", null=True, blank=True, related_name='starting_at')
     end = models.ForeignKey("Technique", null=True, blank=True, related_name='ending_at')
     youtube_id = models.CharField(max_length=30, null=True, blank=True)
@@ -45,6 +46,15 @@ class Technique(TimeStampedModel):
     class Meta:
         ordering = ['type', 'level']
         
+    def get_group_id(self):
+        if self.parent:
+            return self.parent.get_group_id()
+        if self.start:
+            return self.start.get_group_id()
+        else:
+            return self.pk
+
+
     def parse_youtube_id(self):
         self.youtube_id = video_id(self.youtube_link)
         return True

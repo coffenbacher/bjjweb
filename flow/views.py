@@ -19,11 +19,12 @@ def render(request, id):
     f = Flow.objects.get(id=id)
     nodes = f.get_nodes()
     links = []
-    for t in f.techniques.all():
-        if t.start:
-            links.append({'source': t.start.pk, 'target': t.pk})
-        if t.end:
-            links.append({'source': t.pk, 'target': t.end.pk})
+    all_techs = f.techniques.all()
+    for t in all_techs:
+        if t.start and t.start in all_techs:
+            links.append({'source': t.start.pk, 'target': t.pk, 'value': 1})
+        if t.end and t.end in all_techs:
+            links.append({'source': t.pk, 'target': t.end.pk, 'value': 1})
 
     res = json.dumps({"nodes": nodes, "links": links})
     return HttpResponse(res)
