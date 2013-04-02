@@ -21,6 +21,9 @@
                         <li><a href="/technique/">Techniques</a></li>
                         {% if user.is_authenticated %}
                             <li><a href="/users/">Users</a></li>
+                            <li><a href="/accounts/logout/">Logout</a></li>
+                        {% else %}
+                            <li><a href="/accounts/register/">Sign up</a></li>
                         {% endif %}
                     </ul>
             </div>
