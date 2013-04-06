@@ -3,6 +3,7 @@ var width = 960,        // svg width
     dr = 5,             // default point radius
     off = 15,           // cluster hull offset
     power_constant = 2.5, // adjust attraction
+    text_scale = .5, // adjust attraction
     expand = {},        // expanded clusters
     data, net, force, force2, hullg, hull, linkg, helper_linkg, link, hlink, nodeg, helper_nodeg, node, hnode,
     debug = 0; // 0: disable, 1: all, 2: only force2
@@ -271,8 +272,26 @@ function on_node_click(d) {
 var body = d3.select("body");
 
 var vis = d3.select("#view")
-   .attr("width", width)
-   .attr("height", height);
+   .append("svg:svg")
+       .attr("width", width)
+       .attr("height", height)
+       .attr("pointer-events", "all")
+   .append("svg:g")
+       .call(d3.behavior.zoom().on("zoom", redraw))
+   .append("svg:g");
+
+vis.append("svg:rect")
+    .attr('width', width * 20)
+    .attr('height', height * 20)
+    .attr('x', -width * 10)
+    .attr('y', -height * 10)
+    .attr('opacity', 0);
+
+function redraw() {
+    vis.attr("transform",
+        "translate(" + d3.event.translate + ")"
+        + " scale(" + d3.event.scale + ")");
+}
 
 var pathgen = d3.svg.line().interpolate("basis");
 
@@ -531,7 +550,7 @@ function init() {
       .on("click", on_node_click);
 
   nodeEnter.append("text")
-    .attr("font-size", function(d) { return dr + "px"})
+    .attr("font-size", function(d) { return dr * text_scale + "px"})
     .attr("text-anchor", "middle")
     .text(function(d) { 
         var n = net.nodes[d.index].text;
@@ -656,9 +675,9 @@ function init() {
     // force.tick() would expect .px and .py to be the .x and .y of yesterday.
     net.nodes.forEach(function(n) {
       // restrain all nodes to window area
-      var k, dx, dy,
+      /*var k, dx, dy,
           r = (n.size > 0 ? n.size + dr : dr + 1) + 2 /* styled border outer thickness and a bit */;
-
+/*
       dx = 0;
       if (n.x < r)
         dx = r - n.x;
@@ -676,7 +695,7 @@ function init() {
       n.x += dx * k;
       n.y += dy * k;
       // restraining completed.......................
-
+*/
       // fixes 'elusive' node behaviour when hovering with the mouse (related to force.drag)
       if (n.fixed) {
         // 'elusive behaviour' ~ move mouse near node and node would take off, i.e. act as an elusive creature.
