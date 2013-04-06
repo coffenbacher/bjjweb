@@ -320,11 +320,11 @@ d3.json("render/", function(json) {
   }
   helper_linkg = vis.append("g");
   nodeg = vis.append("g");
-  if (debug == 1) {
+  /*if (debug == 1) {
     node = vis.append("g").append("circle")
         .attr("class", "center-of-mass")
         .attr("r", 10);
-  }
+  }*/
 
   init();
 
@@ -464,7 +464,7 @@ function init() {
         .style("fill", function(d) { return fill(d.group); })
         .on("click", on_hull_click);
 
-  if (debug == 1) {
+  /*if (debug == 1) {
     link = linkg.selectAll("line.link").data(net.links, linkid);
     link.exit().remove();
     link.enter().append("line")
@@ -475,7 +475,7 @@ function init() {
         .attr("y2", function(d) { return d.target.y; });
     // both existing and enter()ed links may have changed stroke width due to expand state change somewhere:
     link.style("stroke-width", function(d) { return d.size || 1; });
-  }
+  }*/
 
   hlink = helper_linkg.selectAll("path.hlink").data(net.helper_render_links, function(d) {
     return d.id;
@@ -486,7 +486,7 @@ function init() {
   // both existing and enter()ed links may have changed stroke width due to expand state change somewhere:
   hlink.style("stroke-width", function(d) { return d.size || 1; });
 
-  if (debug) {
+  /*if (debug) {
     hnode = helper_nodeg.selectAll("circle.node").data(net.helper_nodes, function(d) {
       return d.id;
     });
@@ -503,24 +503,35 @@ function init() {
         .attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; })
         .style("fill", function(d) { return fill(d.group); });
-  }
+  }*/
 
-  node = nodeg.selectAll("circle.node").data(net.nodes, nodeid);
+  node = nodeg.selectAll(".node").data(net.nodes, nodeid);
   node.exit().remove();
-  node.enter().append("circle")
-      // if (d.size) -- d.size > 0 when d is a group node.
-      // d.size < 0 when d is a 'path helper node'.
+  var nodeEnter = node.enter().append("g")
       .attr("class", function(d) {
         return "node" + (d.size > 0 ? d.expansion ? " link-expanded" : "" : " leaf");
-      })
+      });
+  
+  nodeEnter.append("circle")
+      // if (d.size) -- d.size > 0 when d is a group node.
+      // d.size < 0 when d is a 'path helper node'.
       .attr("r", function(d) {
         return d.size > 0 ? d.size + dr : dr + 1;
       })
-      .attr("cx", function(d) { return d.x; })
-      .attr("cy", function(d) { return d.y; })
+      /*.attr("cx", function(d) { return d.x; })
+      .attr("cy", function(d) { return d.y; })*/
       .style("fill", function(d) { return fill(d.group); })
       .on("click", on_node_click);
 
+  nodeEnter.append("text")
+    .attr("font-size", "8pt")
+    .text(function(d) { 
+        var n = net.nodes[d.index].text;
+        if (n) 
+            return net.nodes[d.index].text;
+        return net.nodes[d.index].nodes[0].text;    
+    }
+    );
   node.call(force.drag);
 
   var drag_in_progress = false;
@@ -612,11 +623,11 @@ function init() {
     center.x /= center.weight;
     center.y /= center.weight;
 
-    if (debug == 1) {
+    /*if (debug == 1) {
       c = vis.selectAll("circle.center-of-mass")
           .attr("cx", center.x)
           .attr("cy", center.y);
-    }
+    }*/
 
     dx = mx - center.x;
     dy = my - center.y;
@@ -729,8 +740,9 @@ function init() {
           .attr("y2", function(d) { return d.target.y; });
     }
 
-    node.attr("cx", function(d) { return d.x; })
-        .attr("cy", function(d) { return d.y; });
+    //node.attr("x", function(d) { return d.x; })
+    //    .attr("y", function(d) { return d.y; });
+    node.attr("transform", function(d) {return "translate("+d.x+","+d.y+")"});    
   });
 
   force2.on("tick", function(e) {
@@ -777,9 +789,9 @@ function init() {
       return pathgen(linedata);
     });
 
-    if (debug) {
+    /*if (debug) {
       hnode.attr("cx", function(d) { return d.x; })
            .attr("cy", function(d) { return d.y; });
-    }
+    }*/
   });
 }

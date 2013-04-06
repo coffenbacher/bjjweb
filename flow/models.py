@@ -1,4 +1,5 @@
 import random
+from operator import attrgetter
 from technique.models import *
 from django.db import models
 from django_extensions.db.models import TimeStampedModel
@@ -17,13 +18,15 @@ class Flow(TimeStampedModel):
             nodes.append({
                 'color': p.type.color,
                 'url': p.get_absolute_url(),
-                'name': p.name,
+                'text': p.name,
+                'name': p.pk,
                 'pk': p.pk,
                 'group': p.get_group_id(),
+                'group_depth': p.get_group_depth(),
                 'x': random.randint(0,100),
                 'y': random.randint(0,100),
             })
-        
+        nodes = sorted(nodes, key=lambda k: k['group_depth'])
         return nodes
     
     def get_absolute_url(self):

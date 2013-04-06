@@ -46,6 +46,14 @@ class Technique(TimeStampedModel):
     class Meta:
         ordering = ['type', 'level']
         
+    def get_group_depth(self):
+        if self.parent:
+            return 1 + self.parent.get_group_depth()
+        if self.start:
+            return 1 + self.start.get_group_depth()
+        else:
+            return 1 
+
     def get_group_id(self):
         if self.parent:
             return self.parent.get_group_id()
