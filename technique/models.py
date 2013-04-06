@@ -91,6 +91,8 @@ class Technique(TimeStampedModel):
                 return 'Pass: %s > %s' % (self.start.name, self.name)
             if self.type.name == 'Transition':
                 return 'Transition: %s > %s' % (self.start.name, self.name)
+            if self.type.name == 'Counter':
+                return 'Counter: %s > %s' % (self.start.name, self.name)
             return self.name
         except:
             return self.name

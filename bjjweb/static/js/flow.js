@@ -1,14 +1,15 @@
 var width = 960,        // svg width
     height = 600,       // svg height
-    dr = 4,             // default point radius
+    dr = 5,             // default point radius
     off = 15,           // cluster hull offset
+    power_constant = 2.5, // adjust attraction
     expand = {},        // expanded clusters
     data, net, force, force2, hullg, hull, linkg, helper_linkg, link, hlink, nodeg, helper_nodeg, node, hnode,
     debug = 0; // 0: disable, 1: all, 2: only force2
 
 var curve = d3.svg.line()
   .interpolate("cardinal-closed")
-  .tension(.85);
+  .tension(.95);
 
 var fill = d3.scale.category20();
 
@@ -512,19 +513,26 @@ function init() {
         return "node" + (d.size > 0 ? d.expansion ? " link-expanded" : "" : " leaf");
       });
   
-  nodeEnter.append("circle")
+  nodeEnter.append("ellipse")
       // if (d.size) -- d.size > 0 when d is a group node.
       // d.size < 0 when d is a 'path helper node'.
       .attr("r", function(d) {
         return d.size > 0 ? d.size + dr : dr + 1;
       })
+      .attr("ry", function(d) {
+        return d.size > 0 ? d.size + dr : dr;
+      })
+      .attr("rx", function(d) {
+        return d.size > 0 ? d.size + dr : dr * 1.5;
+      })
       /*.attr("cx", function(d) { return d.x; })
       .attr("cy", function(d) { return d.y; })*/
-      .style("fill", function(d) { return fill(d.group); })
+      .style("fill", function(d) { return d.size > 0 ? fill(d.group) : d.color; })
       .on("click", on_node_click);
 
   nodeEnter.append("text")
-    .attr("font-size", "8pt")
+    .attr("font-size", function(d) { return dr + "px"})
+    .attr("text-anchor", "middle")
     .text(function(d) { 
         var n = net.nodes[d.index].text;
         if (n) 
@@ -598,7 +606,7 @@ function init() {
       // 1.0 for singles and double-connected nodes, close to 0 for highly connected nodes, rapidly decreasing.
       // Use this as we want to give those 'non-singles' a little bit of the same 'push out' treatment.
       // Reduce effect for 'real nodes' which are singles: they need much less encouragement!
-      power = Math.max(2, n_is_group ? n.link_count : n.group_data.link_count);
+      power = Math.max(power_constant, n_is_group ? n.link_count : n.group_data.link_count);
       power = 2 / power;
 
       alpha = e.alpha * power;

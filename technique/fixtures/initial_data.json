@@ -85,5 +85,15 @@
             "modified": "2013-03-15T05:28:12.323Z", 
             "name": "Transition"
         }
+    },
+    {
+        "pk": 7, 
+        "model": "technique.techniquetype", 
+        "fields": {
+            "color": "Yellow", 
+            "created": "2013-03-15T05:28:12.322Z", 
+            "modified": "2013-03-15T05:28:12.323Z", 
+            "name": "Counter"
+        }
     }
 ]
