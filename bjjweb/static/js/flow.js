@@ -1,9 +1,9 @@
 var width = 960,        // svg width
     height = 600,       // svg height
-    dr = 5,             // default point radius
+    dr = 10,             // default point radius
     off = 15,           // cluster hull offset
     power_constant = 2.5, // adjust attraction
-    text_scale = .5, // adjust attraction
+    text_scale = .4, // adjust attraction
     expand = {},        // expanded clusters
     data, net, force, force2, hullg, hull, linkg, helper_linkg, link, hlink, nodeg, helper_nodeg, node, hnode,
     debug = 0; // 0: disable, 1: all, 2: only force2
@@ -532,25 +532,58 @@ function init() {
         return "node" + (d.size > 0 ? d.expansion ? " link-expanded" : "" : " leaf");
       });
   
-  nodeEnter.append("ellipse")
+  /*nodeEnter.append("ellipse")
       // if (d.size) -- d.size > 0 when d is a group node.
       // d.size < 0 when d is a 'path helper node'.
       .attr("r", function(d) {
+        d.r = d.size > 0 ? d.size + dr : dr + 1;
         return d.size > 0 ? d.size + dr : dr + 1;
       })
       .attr("ry", function(d) {
         return d.size > 0 ? d.size + dr : dr;
       })
       .attr("rx", function(d) {
-        return d.size > 0 ? d.size + dr : dr * 1.5;
+        return d.size > 0 ? d.size + dr : dr * 2;
       })
-      /*.attr("cx", function(d) { return d.x; })
-      .attr("cy", function(d) { return d.y; })*/
+      .attr("cx", function(d) { return d.x; })
+      .attr("cy", function(d) { return d.y; })
       .style("fill", function(d) { return d.size > 0 ? fill(d.group) : d.color; })
-      .on("click", on_node_click);
+      .on("click", on_node_click);*/
 
+  nodeEnter.append("rect")
+      .attr("r", function(d) {
+        d.r = d.size > 0 ? d.size + dr : dr + 1;
+        return d.size > 0 ? d.size + dr : dr + 1;
+      })
+      .attr("width", function(d) {
+        return d.r * 4;
+      })
+      .attr("height", function(d) {
+        return d.r * 1.5;
+      })
+      .attr("x", function(d) {
+        return -d.r * 4 / 2;
+      })
+      .attr("y", function(d) {
+        return -d.r * 1.5 / 2;
+      })
+      .attr("ry", function(d) {
+        return (d.size > 0 ? d.size + dr : dr) / 2;
+      })
+      .attr("rx", function(d) {
+        //return d.size > 0 ? d.size + dr : dr * 2;
+      })
+    .style("fill", function(d) { return d.size > 0 ? fill(d.group) : d.color; })
+    .on("click", on_node_click);
+    
   nodeEnter.append("text")
-    .attr("font-size", function(d) { return dr * text_scale + "px"})
+    .attr("font-size", function(d) { 
+        /*min = 0;
+        if (d.nodes.length > 3) {
+            min = 22;
+        }*/
+        return Math.max(d.r * text_scale, 0) + 'px';
+    })
     .attr("text-anchor", "middle")
     .text(function(d) { 
         var n = net.nodes[d.index].text;
