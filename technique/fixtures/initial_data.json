@@ -30,7 +30,7 @@
         "pk": 1, 
         "model": "technique.techniquetype", 
         "fields": {
-            "color": "Red", 
+            "color": "#d62728", 
             "created": "2013-03-08T08:33:43.031Z", 
             "modified": "2013-03-08T08:33:43.032Z", 
             "name": "Submission"
@@ -40,7 +40,7 @@
         "pk": 2, 
         "model": "technique.techniquetype", 
         "fields": {
-            "color": "Green", 
+            "color": "#98df8a", 
             "created": "2013-03-08T08:33:46.840Z", 
             "modified": "2013-03-08T08:33:46.840Z", 
             "name": "Sweep"
@@ -50,7 +50,7 @@
         "pk": 3, 
         "model": "technique.techniquetype", 
         "fields": {
-            "color": "#0B46BD", 
+            "color": "#1f77b4", 
             "created": "2013-03-08T08:33:53.287Z", 
             "modified": "2013-03-08T08:33:53.288Z", 
             "name": "Position"
@@ -60,7 +60,7 @@
         "pk": 4, 
         "model": "technique.techniquetype", 
         "fields": {
-            "color": "Green", 
+            "color": "#ff7f0e", 
             "created": "2013-03-14T19:47:45.798Z", 
             "modified": "2013-03-14T19:47:45.799Z", 
             "name": "Pass"
@@ -70,7 +70,7 @@
         "pk": 5, 
         "model": "technique.techniquetype", 
         "fields": {
-            "color": "Green", 
+            "color": "#98df8a", 
             "created": "2013-03-14T19:56:56.462Z", 
             "modified": "2013-03-14T19:56:56.463Z", 
             "name": "Escape"
@@ -80,7 +80,7 @@
         "pk": 6, 
         "model": "technique.techniquetype", 
         "fields": {
-            "color": "Green", 
+            "color": "#98df8a", 
             "created": "2013-03-15T05:28:12.322Z", 
             "modified": "2013-03-15T05:28:12.323Z", 
             "name": "Transition"
