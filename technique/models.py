@@ -44,7 +44,7 @@ class Technique(TimeStampedModel):
     submissions = SubmissionManager()
 
     class Meta:
-        ordering = ['type', 'name']
+        ordering = ['type__id', 'start__name', 'name']
         
     def get_group_depth(self):
         if self.parent:
