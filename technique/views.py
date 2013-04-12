@@ -1,4 +1,5 @@
 import pdb
+from django.db.models import Count
 from django.shortcuts import render_to_response, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.contenttypes.models import ContentType
@@ -8,7 +9,7 @@ from forms import *
 from django.http import HttpResponse
 
 def list(request):
-    techniques = Technique.objects.all()
+    techniques = Technique.objects.annotate(num_images = Count('images')).order_by('-num_images')
     return render_to_response('technique/list.html', {'techniques': techniques}, RequestContext(request))
 
 def view(request, pk):
