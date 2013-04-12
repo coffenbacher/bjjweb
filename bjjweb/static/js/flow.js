@@ -283,7 +283,8 @@ var vis = d3.select("#view")
    .append("svg:g")
        .attr("id", "zoom-layer")
        .call(zm)
-   .append("svg:g");
+   .append("svg:g")
+       .attr("id", "vis");
 
 //$("#slider").slider("value", 1);
 
@@ -295,13 +296,11 @@ vis.append("svg:rect")
     .attr('opacity', 0);
 
 function redraw() {
-    var slider = $("#slider"); 
-    slider.slider("value", d3.event.scale);
-    var s = slider.slider("option", "value"); 
-
-    vis.attr("transform",
-        "translate(" + d3.event.translate + ")"
-        + " scale(" + s + ")");
+   var slider = $("#slider"); 
+   slider.slider("value", d3.event.scale);
+   var s = slider.slider("option", "value"); 
+   d3.select("#vis").attr("transform",
+          "translate(" + d3.event.translate + ")" + " scale(" + s + ")");
 }
 
 var pathgen = d3.svg.line().interpolate("basis");
@@ -874,7 +873,7 @@ function init() {
 
 var slider_change = function(event, ui){
     var s = $(this).slider("option", "value"); 
-    var base = d3.select("#zoom-layer");
+    var base = d3.select("#vis");
     var current = d3.transform(base.attr("transform"));
     current.scale = s;
     zm.scale(current.scale);
