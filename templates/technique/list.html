@@ -3,13 +3,18 @@
 {% block js %}
 <script type="text/javascript">
     $(document).ready(function(){
+        jQuery.expr[":"].Contains = jQuery.expr.createPseudo(function(arg) {
+            return function( elem ) {
+                return jQuery(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
+            };
+        });
         $("#search").keyup(function(){
             if ($(this).val()==""){
                 $(".content-item").show();
             }
             else {
-                $(".content-item").not(":contains("+$(this).val()+")").hide();
-                $(".content-item").filter(":contains("+$(this).val()+")").show();
+                $(".content-item").not(":Contains("+$(this).val()+")").hide();
+                $(".content-item").filter(":Contains("+$(this).val()+")").show();
             }
         });
     });
