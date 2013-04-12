@@ -77,5 +77,5 @@ class LoggedInTest(TestCase):
         response = self.client.post('/technique/%s/edit/' % s.pk, d)
         self.failUnlessEqual(response.status_code, 302)
         
-        s = Technique.objects.all()[0]
+        s = Technique.objects.get(pk=s.pk)
         self.assertTrue(s.level.pk == 2)
