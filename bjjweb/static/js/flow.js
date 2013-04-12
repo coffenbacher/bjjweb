@@ -1,5 +1,5 @@
-var width = 960,        // svg width
-    height = 600,       // svg height
+var width = 0,        // svg width
+    height = 0,       // svg height
     dr = 10,             // default point radius
     off = 15,           // cluster hull offset
     power_constant = 2.5, // adjust attraction
@@ -274,6 +274,9 @@ function on_node_click(d) {
 var body = d3.select("body");
 
 zm = d3.behavior.zoom().scaleExtent([0.1,2]).on("zoom", redraw)
+
+width = $("#view").width();
+height = $("#view").height();
 
 var vis = d3.select("#view")
    .append("svg:svg")
