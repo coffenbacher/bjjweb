@@ -261,6 +261,8 @@ function on_hull_click(d) {
 function on_node_click(d) {
   if (debug == 1) console.log("node click", d, arguments, this, expand[d.group]);
   // clicking on 'path helper nodes' shouln't expand/collapse the group node:
+  if (d.url)
+    location.href = d.url;
   if (d.size < 0)
     return;
   cycleState(d);
@@ -574,9 +576,13 @@ function init() {
         //return d.size > 0 ? d.size + dr : dr * 2;
       })
     .style("fill", function(d) { return d.size > 0 ? fill(d.group) : d.color; })
+    .style("cursor", "pointer")
     .on("click", on_node_click);
     
-  nodeEnter.append("text")
+  nodeEnter.append("a")
+    .attr("xlink:href", function(d){ return d.url })
+    .append("text")
+    .on("click", on_node_click)
     .attr("font-size", function(d) { 
         /*min = 0;
         if (d.nodes.length > 3) {
@@ -591,7 +597,8 @@ function init() {
             return net.nodes[d.index].text;
         return net.nodes[d.index].nodes[0].text;    
     }
-    );
+    )
+    .style("cursor", "pointer");
   node.call(force.drag);
 
   var drag_in_progress = false;
@@ -793,12 +800,12 @@ function init() {
           .attr("d", drawCluster);
     }
 
-    if (debug == 1) {
+    /*if (debug == 1) {
       link.attr("x1", function(d) { return d.source.x; })
           .attr("y1", function(d) { return d.source.y; })
           .attr("x2", function(d) { return d.target.x; })
           .attr("y2", function(d) { return d.target.y; });
-    }
+    }*/
 
     //node.attr("x", function(d) { return d.x; })
     //    .attr("y", function(d) { return d.y; });
