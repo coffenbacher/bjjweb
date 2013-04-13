@@ -95,5 +95,15 @@
             "modified": "2013-03-15T05:28:12.323Z", 
             "name": "Counter"
         }
-    }
+    },
+    {
+        "pk": 8, 
+        "model": "technique.techniquetype", 
+        "fields": {
+            "color": "#ff7f0e", 
+            "created": "2013-03-15T05:28:12.322Z", 
+            "modified": "2013-03-15T05:28:12.323Z", 
+            "name": "Takedown"
+        }
+   }     
 ]
