@@ -882,3 +882,13 @@ var slider_change = function(event, ui){
     zm.scale(current.scale);
     base.attr("transform", current);
 }
+
+var expand_all = function(){
+    for (n in net.nodes){expand[n] = 2;}
+    init();
+}
+
+var collapse_all = function(){
+    for (n in net.nodes){expand[n] = 0;}
+    init();
+}
