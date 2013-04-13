@@ -16,6 +16,18 @@
         {% endif %}
     </div>
     <div style="clear:both">
+        <ul>
+        {% for i in t.images.all %}
+            <li class="content-item">
+            {% if i.image %}
+                <a href="{{ i.image.url }}">
+                    <img src="{{ i.image.url }}" style="width:400px; float: left;">
+                </a>
+            {% endif %}
+            </li>
+        {% endfor %}
+    </div>
+    <div style="clear:both">
         <h2>Related techniques</h2>
         <ul>
         {% for t2 in related %}
