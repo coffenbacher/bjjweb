@@ -1,0 +1,47 @@
+[
+    {
+        "pk": 1, 
+        "model": "competition.matchstyle", 
+        "fields": {
+            "modified": "2013-04-13T21:07:51.469Z", 
+            "name": "Gi", 
+            "created": "2013-04-13T21:07:51.439Z"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "competition.matchstyle", 
+        "fields": {
+            "modified": "2013-04-13T21:07:54.222Z", 
+            "name": "No-Gi", 
+            "created": "2013-04-13T21:07:54.221Z"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "competition.matchstyle", 
+        "fields": {
+            "modified": "2013-04-13T21:07:58.494Z", 
+            "name": "MMA", 
+            "created": "2013-04-13T21:07:58.493Z"
+        }
+    },
+    {
+        "pk": 1, 
+        "model": "competition.matchtype", 
+        "fields": {
+            "modified": "2013-04-13T21:08:08.510Z", 
+            "name": "Casual", 
+            "created": "2013-04-13T21:08:08.509Z"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "competition.matchtype", 
+        "fields": {
+            "modified": "2013-04-13T21:08:27.516Z", 
+            "name": "Competitive", 
+            "created": "2013-04-13T21:08:27.516Z"
+        }
+    }
+]

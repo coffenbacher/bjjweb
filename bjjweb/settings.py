@@ -139,7 +139,8 @@ INSTALLED_APPS = (
     'registration',
     'bjjprofile',
     'technique',
-    'flow'
+    'flow',
+    'competition'
 )
 
 # A sample logging configuration. The only tangible logging
