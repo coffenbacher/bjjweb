@@ -14,7 +14,8 @@ def list(request):
 
 def view(request, pk):
     t = Technique.objects.get(pk=pk)
-    return render_to_response('technique/view.html', {'t': t}, RequestContext(request))
+    related = filter(lambda x: x, [t2 for t2 in t.starting_at.all()] + [t2 for t2 in t.ending_at.all()] + [t2 for t2 in t.children.all()] + [ t.start, t.end ])
+    return render_to_response('technique/view.html', {'t': t, 'related': related}, RequestContext(request))
 
 @login_required
 def create(request, pk=None):

@@ -16,6 +16,21 @@
         {% endif %}
     </div>
     <div style="clear:both">
+        <h2>Related techniques</h2>
+        <ul>
+        {% for t2 in related %}
+            <li class="content-item" style="width:500px;">
+            {% if t2.images.all.0.image %}
+                <img src="{{ t2.images.all.0.image.url }}" style="width:100px; max-height:75px; float: left; margin-right:20px;">
+            {% endif %}    
+            <a href="{{ t2.get_absolute_url }}">{{ t2 }}</a>
+            </li>
+        {% empty %}
+            <i>None yet, <a href="{% url technique.views.create %}">create a technique</a></i>
+        {% endfor %}
+        </ul>
+    </div>
+    <div style="clear:both">
         <h2>Flows containing {{ t.name }}</h2>
         <ul>
         {% for f in t.flow_set.all %}
